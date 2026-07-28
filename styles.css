@@ -46,3 +46,11 @@ header {
 #click_counter {
     user-select: none;
 }
+
+#click_timer {
+    position: absolute;
+    top: 0%;
+    left: 100%;
+    transform: translate(-100%, 0%);
+    user-select: none;
+}
