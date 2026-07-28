@@ -1,4 +1,5 @@
-let link = console.log(window.location.href);
+let link = window.location.href;
+console.log(link);
 
 cps_button = document.getElementById("cps_test");
 cps_button.addEventListener("click", () => redirect("src/pages/cps.html")); // The () => is AI because I don't know how to code apparently.
@@ -13,6 +14,7 @@ typing_speed_button = document.getElementById("typing_speed_test");
 typing_speed_button.addEventListener("click", () => redirect("src/pages/typing_speed.html"));
 
 function redirect(page) {
-    window.open((link+page), "_self")
-    console.log("hi")
+    url = link + page;
+    
+    window.open((link+page), "_self");
 }
