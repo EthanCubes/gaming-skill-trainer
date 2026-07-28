@@ -18,3 +18,4 @@ function redirect(page) {
     
     window.open((link+page), "_self");
 }
+
