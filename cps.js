@@ -3,12 +3,13 @@ let interval;
 
 let testing = false;
 let start_time;
+let stop_time = Date.now();
 let clicks = 0;
 let cps;
 
 document.addEventListener("click", function() {
     console.log("hi");
-    if (!(testing)) {
+    if ((!(testing)) && (stop_time >= 500)) {
         clicks = 0;
         cps = 0;
         testing = true;
@@ -29,6 +30,7 @@ function test_loop() {
             clearInterval(interval);
             interval = null;
             alert("You have gotten " + cps + " cps!");
+            stop_time = Date.now()
         }
     }
 }
