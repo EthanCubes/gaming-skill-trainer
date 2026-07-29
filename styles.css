@@ -57,9 +57,9 @@ header {
 
 #hit_circle {
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -25%);
     
     background-color: white;
     display: block;
@@ -70,4 +70,11 @@ header {
 
 #hit_circle:hover {
     background-color: grey;
+}
+
+#aim_timer {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
