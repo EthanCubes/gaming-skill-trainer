@@ -11,7 +11,7 @@ let cps;
 
 document.addEventListener("click", function() {
     console.log("hi");
-    if ((!(testing)) && (stop_time >= 500)) {
+    if ((!(testing)) && (stop_time >= 1000)) {
         clicks = 0;
         cps = 0;
         testing = true;
