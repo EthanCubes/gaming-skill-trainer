@@ -3,6 +3,7 @@ let mode = 0;
 
 let start_time;
 let reaction_time;
+let wait_time;
 let end_time = Date.now();
 
 message = document.getElementById("message");
@@ -16,20 +17,22 @@ function clicked() {
     switch(mode) {
         case 0:
             start_time = Date.now();
+            wait_time = Math.floor(Math.random()*3000+750);
             mode = 1;
             break;
         case 1:
-            if ((Date.now() - start_time) > 500) {
+            if ((Date.now() - start_time) > 50) {
                 message.innerHTML = "You Clicked Too Early!"
                 mode = 3;
+                end_time = Date.now();
                 break;
             }
         case 2:
-            if ((Date.now() - start_time) > 500) {
-                message.innerHTML = "Your reaction time is " + reaction_time + " milliseconds.";
-                mode = 3;
-                break;
-            }
+            reaction_time = Date.now() - start_time;
+            message.innerHTML = "Your reaction time is " + reaction_time + " milliseconds.";
+            mode = 3;
+            end_time = Date.now();
+            break;
         default:
             console.log("Error");
             break;
@@ -46,10 +49,11 @@ function gameloop() {
             document.body.style.backgroundColor = "red";
             message.innerHTML = "Prepare...";
             if ((Date.now() - start_time) > 750) {
-                let wait_time = Math.floor(Math.random()*3000+750);
+                console.log(wait_time);
+                console.log(Date.now() - start_time);
                 if ((Date.now() - start_time) > wait_time) {
-                    start_time = Date.now();
-                    reaction_time = Date.now() - 10; // delay rebalancing
+                    start_time = Date.now() - 10; // delay rebalancing
+                    mode = 2;
                 }
             }
             break;
@@ -58,7 +62,7 @@ function gameloop() {
             message.innerHTML = "Click!";
             break;
         case 3:
-            if ((Date.now() - end_time) > 1000) {
+            if ((Date.now() - end_time) > 1500) {
                 mode = 0;
             }
             break;
