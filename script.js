@@ -14,8 +14,12 @@ typing_speed_button = document.getElementById("typing_speed_test");
 typing_speed_button.addEventListener("click", () => redirect("typing_speed.html"));
 
 function redirect(page) {
-    url = link + page;
-    
-    window.open((link+page), "_self");
+    const LINK_REL = {"eth":"https://ethancubes.github.io/gaming-skill-trainer/", 
+        "oca":"http://localhost:5500/", 
+        "27.":"http://127.0.0.1:5500/"}
+    let link_short = link[8] + link[9] + link[10];
+    url = LINK_REL[link_short] + page;
+    console.log(url)
+    window.open(url, "_self");
 }
 
