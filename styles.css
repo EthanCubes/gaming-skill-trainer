@@ -67,3 +67,7 @@ header {
     height: 50px;
     border-radius: 50%;
 }
+
+#hit_circle:hover {
+    background-color: grey;
+}
