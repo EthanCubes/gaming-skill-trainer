@@ -78,3 +78,11 @@ header {
     left: 50%;
     transform: translate(-50%, 0%);
 }
+
+#home {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    transform: translate(0%, -100%);
+    margin-left: 1rem;
+}
