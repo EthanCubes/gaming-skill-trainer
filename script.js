@@ -13,6 +13,9 @@ alt_spam_button.addEventListener("click", () => redirect("alt_spam.html"));
 typing_speed_button = document.getElementById("typing_speed_test");
 typing_speed_button.addEventListener("click", () => redirect("typing_speed.html"));
 
+reaction_time_test = document.getElementById("reaction_time_test");
+reaction_time_test.addEventListener("click", () => redirect("reaction.html"));
+
 function redirect(page) {
     const LINK_REL = {"eth":"https://ethancubes.github.io/gaming-skill-trainer/", 
         "oca":"http://localhost:5500/", 
