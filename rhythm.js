@@ -1,11 +1,13 @@
 let testing = false;
 
 let start_time;
-let end_time;
+let end_time = Date.now();
 
 let click_time;
 let rhythm_click = false;
 let last_click_time = Date.now();
+
+const frame_perfect = new Audio("assets/s23574.ogg");
 
 const message = document.getElementById("message");
 
@@ -40,8 +42,12 @@ function gameloop() {
         if ((Date.now() - last_click_time) > 333) {
             if (Math.random() < 0.2) {
                 rhythm_click = true;
-                document.body.style.backgroundColor = "grey";
+                frame_perfect.play();
+                click_time = Date.now();
             }
+        }
+        if ((rhythm_click) && ((Date.now() - click_time) > 100)) {
+            document.body.style.backgroundColor = "grey";
         }
     }
     else {
