@@ -13,7 +13,8 @@ document.addEventListener("click", clicked);
 setInterval(gameloop, 10);
 
 function clicked() {
-    if (!(testing)) {
+    if ((!(testing)) && ((Date.now() - end_time) > 500)) {
+        document.body.style.backgroundColor = "black";
         testing = true;
         start_time = Date.now();
         last_click_time = Date.now();
