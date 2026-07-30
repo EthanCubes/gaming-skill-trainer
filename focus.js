@@ -203,22 +203,20 @@ function key_rotation() {
 
 function render_key_movement(target_position) {
     time_offset += 10;
-    if (time_offset > 240) {
+    if (time_offset > 230) {
         clearInterval(render_move_keys);
         render_move_keys = null;
         return;
     }
     for (const item in target_position) {
         let current_position = position_list.indexOf(item);
-        console.log(position_list);
-        console.log(current_position);
     }
 }
 
 function move_keys() {
     key_move_count += 1;
     if (key_move_count === 1) {
-        move_keys = setInterval(move_keys, 250);
+        move_keys_interval = setInterval(move_keys, 250);
     }
     if (key_move_count > 26) {
         clearInterval(moveKeys);
