@@ -89,3 +89,12 @@ header {
     color: white;
     user-select: none;
 }
+
+.key {
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgb(200, 125, 50);
+    position: absolute;
+}
