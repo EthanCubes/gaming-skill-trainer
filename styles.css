@@ -8,7 +8,7 @@ header {
     text-align: center;
 }
 
-#links {
+.links {
     justify-content: center;
     display: flex;
     overflow-x: wrap;

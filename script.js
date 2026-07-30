@@ -10,11 +10,14 @@ aim_trainer_button.addEventListener("click", () => redirect("aim_trainer.html"))
 alt_spam_button = document.getElementById("alt_spam_test");
 alt_spam_button.addEventListener("click", () => redirect("alt_spam.html"));
 
-typing_speed_button = document.getElementById("typing_speed_test");
-typing_speed_button.addEventListener("click", () => redirect("typing_speed.html"));
-
 reaction_time_test = document.getElementById("reaction_time_test");
 reaction_time_test.addEventListener("click", () => redirect("reaction.html"));
+
+rhythm_test = document.getElementById("rhythm_test");
+rhythm_test.addEventListener("click", () => redirect("rhythm.html"));
+
+focus_trainer = document.getElementById("focus_trainer");
+focus_trainer.addEventListener("click", () => redirect("focus.html"));
 
 function redirect(page) {
     const LINK_REL = {"eth":"https://ethancubes.github.io/gaming-skill-trainer/", 
