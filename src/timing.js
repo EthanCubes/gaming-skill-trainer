@@ -20,6 +20,7 @@ let testing = false;
 
 // Time
 let start_time;
+let last_time = Date.now();
 let end_time = Date.now();
 
 // Selection
@@ -43,7 +44,10 @@ document.addEventListener("click", () => {
 function gameloop() {
     switch(testing) {
         case true:
-            console.log("hi")
+            message.style.display = "none";
+            if ((Date.now() - last_time) > 750) {
+                // trigger the circle to go darting across the screen.
+            }
             break;
         case false:
             document.body.style.backgroundColor = "black";
