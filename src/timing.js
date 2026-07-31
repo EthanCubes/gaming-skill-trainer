@@ -46,7 +46,9 @@ function gameloop() {
             console.log("hi")
             break;
         case false:
-            console.log("bye");
+            document.body.style.backgroundColor = "black";
+            message.style.display = "block";
+            message.innerHTML = "Click to start the timing test.";
             break;
     }
 }
