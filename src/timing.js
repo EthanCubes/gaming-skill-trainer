@@ -29,7 +29,24 @@ let line = document.getElementById("hit_line");
 
 // Intervals and event listeners
 addEventListener(gameloop(), 10);
-document.addEventListener("click", () => {});
+document.addEventListener("click", () => {
+    if (testing) {}
+    else {
+        // Activation
+        if ((Date.now() - end_time) > 500) {
+            testing = true;
+        }
+    }
+});
 
 // Functions
-function gameloop() {}
+function gameloop() {
+    switch(testing) {
+        case true:
+            console.log("hi")
+            break;
+        case false:
+            console.log("bye");
+            break;
+    }
+}
