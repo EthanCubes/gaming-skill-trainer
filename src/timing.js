@@ -28,5 +28,8 @@ let circle = document.getElementById("precision_circle");
 let line = document.getElementById("hit_line");
 
 // Intervals and event listeners
+addEventListener(gameloop(), 10);
+document.addEventListener("click", () => {});
 
 // Functions
+function gameloop() {}
