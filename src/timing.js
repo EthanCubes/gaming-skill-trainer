@@ -19,10 +19,14 @@ Now, how the hell do I do this?
 let testing = false;
 
 // Time
+let start_time;
+let end_time = Date.now();
 
 // Selection
 let message = document.getElementById("message");
 let circle = document.getElementById("precision_circle");
 let line = document.getElementById("hit_line");
+
+// Intervals and event listeners
 
 // Functions
