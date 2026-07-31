@@ -14,3 +14,15 @@ At the end, something is broadcast to the user telling them how many points they
 
 Now, how the hell do I do this?
 */
+
+// States
+let testing = false;
+
+// Time
+
+// Selection
+let message = document.getElementById("message");
+let circle = document.getElementById("precision_circle");
+let line = document.getElementById("hit_line");
+
+// Functions
