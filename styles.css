@@ -99,7 +99,7 @@ header {
     position: absolute;
 }
 
-.precision_circle {
+#precision_circle {
     width: 25px;
     height: 25px;
     position: absolute;
