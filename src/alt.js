@@ -42,7 +42,7 @@ function gameloop() {
     }
     else {
         if ((Date.now() - end_time) > 1500) {
-            message.innerHTML = "Spam any key to start";
+            message.innerHTML = "Spam any key(s) to start";
             document.body.style.backgroundColor = "black";
         }
     }
