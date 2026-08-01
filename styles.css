@@ -31,8 +31,11 @@ header {
     margin: 2rem;
 }
 
-.fake_button:hover {
-    background-color: rgb(200,200,200);
+@media (hover:hover) {
+    .fake_button:hover {
+        background-color: rgb(200,200,200);
+        transition-duration: 250ms; 
+    }
 }
 
 #message {
