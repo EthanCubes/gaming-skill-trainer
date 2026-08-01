@@ -31,6 +31,7 @@ let circle_start_time;
 let circle_last_time = Date.now();
 let end_time = Date.now();
 let circle_calculation_interval;
+let circle_active = false;
 
 // Selection
 let message = document.getElementById("message");
@@ -59,16 +60,17 @@ function gameloop() {
         case true:
             message.style.display = "none";
             document.body.style.backgroundColor = "rgb(25,25,25)";
-            if ((Date.now() - circle_last_time) > 750) {
-                // trigger the circle to go darting across the screen.
+            if (((Date.now() - circle_last_time) > 750) && !(circle_active)) {
+                // trigger the circle to go darting across the screen. we know that this is triggered from a previous debug statement that i have now removed
            	    circle_start_time = Date.now(); 
+                circle_active = true;
                 circle_calculation_interval = setInterval(calculate_circle, 10);
             }
             if ((Date.now() - start_time) > 20000) {
                 // Code to terminate the testing thing.
+                circle_active = false;
                 document.body.style.backgroundColor = "black";
                 testing = false;
-                end_timer = Date.now();
             }
             break;
         case false:
@@ -88,5 +90,6 @@ function calculate_circle() {
         clearInterval(circle_calculation_interval);
         circle_calculation_interval = null;
         circle_last_time = Date.now();
+        end_timer = Date.now();
     }
 }
