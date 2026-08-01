@@ -61,11 +61,6 @@ document.addEventListener("click", () => {
         // Determine if there is a circle on the board, and how close the user was to getting a perfect score.
         let circle_x = remove_suffix(getComputedStyle(circle).left) / remove_suffix(screen_x) * 100;
         let valid = false;
-        if (circle_active && !(valid) && !(circle_click_attempt)) {
-            score -= 100;
-            valid = true;
-            console.log(-100);
-        }
         if (circle_active && (45 < circle_x < 55) && !(valid) && !(circle_click_attempt)) {
             score += 300;
             valid = true;
@@ -91,6 +86,7 @@ document.addEventListener("click", () => {
             valid = true;
             console.log(-100);
         }
+        circle_click_attempt = true;
     }
     else {
         // Activation
@@ -146,6 +142,7 @@ function calculate_circle() {
         circle.style.left = "100%";
         if (!(circle_click_attempt)) {
             score -= 100;
+            console.log(-100);
         }
     }
 }
