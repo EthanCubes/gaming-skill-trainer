@@ -51,8 +51,10 @@ const circle = document.getElementById("precision_circle");
 const line = document.getElementById("hit_line");
 const screen_dimension_searcher = document.getElementById("screen_dimension_searcher");
 
-let screen_x = get_screen_dimensions(-100, -50)[0];
-let screen_y = get_screen_dimensions(-100, -50)[1];
+let screen_x = get_screen_dimensions(0, -50)[0];
+let screen_y = get_screen_dimensions(0, -50)[1];
+
+alert("This program can give inaccurate results when your device is delayed. ")
 
 // Intervals and event listeners
 setInterval(gameloop, 10);
@@ -61,17 +63,17 @@ document.addEventListener("click", () => {
         // Determine if there is a circle on the board, and how close the user was to getting a perfect score.
         let circle_x = remove_suffix(getComputedStyle(circle).left) / remove_suffix(screen_x) * 100;
         let valid = false;
-        if (circle_active && ((45 < circle_x) && (circle_x < 55)) && !(valid) && !(circle_click_attempt)) {
-            score += 300;
+        if (circle_active && ((44.25 < circle_x) && (circle_x < 54.25)) && !(valid) && !(circle_click_attempt)) {
+            score += 150;
             console.log("Great");
             valid = true;
         }
-        if (circle_active && ((40 < circle_x) && (circle_x < 60)) && !(valid) && !(circle_click_attempt)) {
+        if (circle_active && ((39.25 < circle_x) && (circle_x < 59.25)) && !(valid) && !(circle_click_attempt)) {
             score += 100;
             console.log("Okay");
             valid = true;
         }
-        if (circle_active && ((35 < circle_x) && (circle_x < 65)) && !(valid) && !(circle_click_attempt)) {
+        if (circle_active && ((34.25 < circle_x) && (circle_x < 64.25)) && !(valid) && !(circle_click_attempt)) {
             score += 50;
             console.log("Meh");
             valid = true;
@@ -147,7 +149,7 @@ function calculate_circle() {
 }
 
 function calculate_accuracy(total, user_score) {
-    let highest_possible_score = total * 300;
+    let highest_possible_score = total * 150;
     let accuracy = ((user_score / highest_possible_score) * 100).toFixed(2); 
     return accuracy;
 }
