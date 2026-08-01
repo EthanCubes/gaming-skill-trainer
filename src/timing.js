@@ -61,30 +61,30 @@ document.addEventListener("click", () => {
         // Determine if there is a circle on the board, and how close the user was to getting a perfect score.
         let circle_x = remove_suffix(getComputedStyle(circle).left) / remove_suffix(screen_x) * 100;
         let valid = false;
-        if (circle_active && (45 < circle_x < 55) && !(valid) && !(circle_click_attempt)) {
+        if (circle_active && ((45 < circle_x) && (circle_x < 55)) && !(valid) && !(circle_click_attempt)) {
             score += 300;
+            console.log("Great");
             valid = true;
-            console.log(+300);
         }
-        if (circle_active && (40 < circle_x < 60) && !(valid) && !(circle_click_attempt)) {
+        if (circle_active && ((40 < circle_x) && (circle_x < 60)) && !(valid) && !(circle_click_attempt)) {
             score += 100;
+            console.log("Okay");
             valid = true;
-            console.log(+100);
         }
-        if (circle_active && (35 < circle_x < 65) && !(valid) && !(circle_click_attempt)) {
+        if (circle_active && ((35 < circle_x) && (circle_x < 65)) && !(valid) && !(circle_click_attempt)) {
             score += 50;
+            console.log("Meh");
             valid = true;
-            console.log(+100);
         }
         if (circle_active && circle_click_attempt && !(valid)) {
             score -= 100;
+            console.log("Miss");
             valid = true;
-            console.log(-100);
         }
         if (!(circle_active)) {
             score -= 100;
+            console.log("miss");
             valid = true;
-            console.log(-100);
         }
         circle_click_attempt = true;
     }
@@ -117,7 +117,7 @@ function gameloop() {
                 // Code to terminate the testing thing.
                 document.body.style.backgroundColor = "black";
                 testing = false;
-                alert(score);
+                alert("You have gotten " + calculate_accuracy(circle_active_count, score) + "% accuracy");
             }
             break;
         case false:
@@ -142,7 +142,6 @@ function calculate_circle() {
         circle.style.left = "100%";
         if (!(circle_click_attempt)) {
             score -= 100;
-            console.log(-100);
         }
     }
 }
