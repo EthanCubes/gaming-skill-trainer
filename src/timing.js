@@ -15,7 +15,7 @@ At the end, something is broadcast to the user telling them how many points they
 Now, how the hell do I do this?
 
 To-do list
-[] Start and end the program
+[x] Start and end the program
 [] Circle is triggered.
 [] Circle moves across the screen
 [] Calculation of accuracy
@@ -58,6 +58,7 @@ function gameloop() {
     switch(testing) {
         case true:
             message.style.display = "none";
+            document.body.style.backgroundColor = "rgb(25,25,25)";
             if ((Date.now() - circle_last_time) > 750) {
                 // trigger the circle to go darting across the screen.
            	    circle_start_time = Date.now(); 
@@ -65,6 +66,9 @@ function gameloop() {
             }
             if ((Date.now() - start_time) > 20000) {
                 // Code to terminate the testing thing.
+                document.body.style.backgroundColor = "black";
+                testing = false;
+                end_timer = Date.now();
             }
             break;
         case false:
