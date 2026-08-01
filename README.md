@@ -1,5 +1,5 @@
 # Gaming Skill Trainer
-A web app with a variety of pages to help train gamers on various skills needed for effective gaming, including aim, reaction time, click speed, and even typing speed.
+A web app with a variety of pages to help train gamers on various skills needed for effective gaming, including aim, reaction time, click speed, and even timing.
 
 Image will go here
 
