@@ -17,7 +17,7 @@ Now, how the hell do I do this?
 To-do list
 [x] Start and end the program
 [x] Circle is triggered.
-[] Circle moves across the screen
+[x] Circle moves across the screen
 [] Calculation of accuracy
 [] Alerting the user of accuracy
 */
@@ -68,7 +68,6 @@ function gameloop() {
             }
             if ((Date.now() - start_time) > 20000) {
                 // Code to terminate the testing thing.
-                circle_active = false;
                 document.body.style.backgroundColor = "black";
                 testing = false;
             }
@@ -86,11 +85,13 @@ function calculate_circle() {
     console.log(100 - time_difference); // debug statement
     // Time lasts roughly 2 seconds, 1 second too early and 1 second too late. This is actually 2000 milliseconds, which is exactly 20 times the 100% width of the screen.
     circle.style.left = (100 - time_difference) + "%"; // Moves the circle
-    if (time_difference > 99) { // computers are kinda bad at decimals but this will do for now.
+    if ((time_difference > 99) || !(testing)) {
         // clear the interval after the circle is done moving
         clearInterval(circle_calculation_interval);
         circle_calculation_interval = null;
         circle_last_time = Date.now();
         end_timer = Date.now();
+        circle_active = false;
+        circle.style.left = "100%";
     }
 }
