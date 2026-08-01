@@ -1,7 +1,7 @@
 # Gaming Skill Trainer
 A web app with a variety of pages to help train gamers on various skills needed for effective gaming, including aim, reaction time, click speed, and even timing.
 
-Image will go here
+![Black Screen with several squares on it](screenshot/Screenshot_20260729_114653.png)
 
 ## [Click Here to Try the Program](https://ethancubes.github.io/gaming-skill-trainer/)
 
