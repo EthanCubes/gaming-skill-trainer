@@ -60,7 +60,8 @@ function gameloop() {
         case true:
             message.style.display = "none";
             document.body.style.backgroundColor = "rgb(25,25,25)";
-            if (((Date.now() - circle_last_time) > 750) && !(circle_active)) {
+            console.log(Date.now() - start_time);
+            if (((Date.now() - circle_last_time) > 750) && !(circle_active) && ((Date.now() - start_time) < 17500)) {
                 // trigger the circle to go darting across the screen. we know that this is triggered from a previous debug statement that i have now removed
            	    circle_start_time = Date.now(); 
                 circle_active = true;
