@@ -13,6 +13,13 @@ And then, you only get 100 points, then you only get 50 points, then you don't g
 At the end, something is broadcast to the user telling them how many points they got out of the maximum points they could have gotten.
 
 Now, how the hell do I do this?
+
+To-do list
+[] Start and end the program
+[] Circle is triggered.
+[] Circle moves across the screen
+[] Calculation of accuracy
+[] Alerting the user of accuracy
 */
 
 // States
