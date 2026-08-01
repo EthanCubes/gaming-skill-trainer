@@ -20,6 +20,13 @@ To-do list
 [x] Circle moves across the screen
 [] Calculation of accuracy
 [] Alerting the user of accuracy
+
+How accuracy is calculated
+- Click when circle isn't even active = -100 points. At the end, if the number is below 0, it gets set to 0
+- Click 250ms before or after = +50 points
+- Click 100ms before or after = +100 points
+- Click 50ms before or after = +300 points
+- Miss the circle entirely = -100 points
 */
 
 // States
@@ -30,8 +37,13 @@ let start_time;
 let circle_start_time;
 let circle_last_time = Date.now();
 let end_time = Date.now();
+
+// Circle
 let circle_calculation_interval;
 let circle_active = false;
+let circle_click_attempt = false;
+let circle_active_count;
+let score;
 
 // Selection
 let message = document.getElementById("message");
