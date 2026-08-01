@@ -22,7 +22,8 @@ focus_trainer.addEventListener("click", () => redirect("focus.html"));
 function redirect(page) {
     const LINK_REL = {"eth":"https://ethancubes.github.io/gaming-skill-trainer/", 
         "oca":"http://localhost:5500/", 
-        "27.":"http://127.0.0.1:5500/"}
+        "27.":"http://127.0.0.1:5500/",
+        "hom":"file:///home/ethancubes/Projects/Programming/gaming-skill-trainer/"} // Change "ethancubes" to whatever your username is.
     let link_short = link[8] + link[9] + link[10];
     url = LINK_REL[link_short] + page;
     console.log(url)
