@@ -119,3 +119,10 @@ header {
     width: 5px;
     height: 100px;
 }
+
+#screen_dimension_searcher {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: black;
+}
