@@ -108,3 +108,10 @@ function calculate_circle() {
         circle.style.left = "100%";
     }
 }
+
+
+function calculate_accuracy(total, user_score) {
+    let highest_possible_score = total * 300;
+    let accuracy = ((user_score / highest_possible_score) * 100).toFixed(2); 
+    return accuracy;
+}
