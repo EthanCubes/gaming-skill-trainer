@@ -58,7 +58,11 @@ alert("This program can give inaccurate results when your device is delayed. ")
 
 // Intervals and event listeners
 setInterval(gameloop, 10);
-document.addEventListener("click", () => {
+document.addEventListener("click", user_input);
+document.addEventListener("keyup", user_input);
+
+// Functions
+function user_input() {
     if (testing) {
         // Determine if there is a circle on the board, and how close the user was to getting a perfect score.
         let circle_x = remove_suffix(getComputedStyle(circle).left) / remove_suffix(screen_x) * 100;
@@ -99,9 +103,8 @@ document.addEventListener("click", () => {
             score = 0;
         }
     }
-});
+}
 
-// Functions
 function gameloop() {
     switch(testing) {
         case true:
