@@ -2,6 +2,7 @@ body {
     background-color: black;
     font-family: monospace;
     color: white;
+    overflow-x: hidden;
 }
 
 header {
@@ -110,7 +111,7 @@ header {
     left: 100%;
     background-color: white;
     border-radius: 50%;
-    transform: translate(-100%, -50%);
+    transform: translate(0%, -50%);
 }
 
 #hit_line {   
