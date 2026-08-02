@@ -212,6 +212,7 @@ function update_score_display(score, total_possible) {
 function pulse_popup(score_gotten) {
     // hello there
     pulse_start = Date.now();
+    clearInterval(pulse_interval);
     pulse_interval = setInterval(calculate_pulse, 10, score_gotten);
 }
 
