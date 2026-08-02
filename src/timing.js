@@ -218,7 +218,7 @@ function pulse_popup(score_gotten) {
 
 function calculate_pulse(score_gotten) { // I hope that this code works. I haven't tested it, and also Vim doesn't show any errors or warnings.
     let pulse_delay = Date.now() - pulse_start;
-    if (pulse_delay > 250) {
+    if (pulse_delay > 500) {
         clearInterval(pulse_interval);
         pulse_interval = null;
         pulse.style.display = "none";
@@ -231,7 +231,7 @@ function calculate_pulse(score_gotten) { // I hope that this code works. I haven
             pulse.innerHTML = "Great! +150";
             break;
         case 100:
-            pulse.innerHTML = "Good. +100";
+            pulse.innerHTML = "Okay. 100";
             break;
         case 50:
             pulse.innerHTML = "Meh. +50";
