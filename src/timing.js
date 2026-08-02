@@ -45,12 +45,17 @@ let circle_click_attempt = false;
 let circle_active_count;
 let score;
 
+// Pulse
+let pulse_start;
+let pulse_interval;
+
 // Selection
 const message = document.getElementById("message");
 const circle = document.getElementById("precision_circle");
 const line = document.getElementById("hit_line");
 const screen_dimension_searcher = document.getElementById("screen_dimension_searcher");
 const score_display = document.getElementById("score_display");
+const pulse = document.getElementById("popup");
 
 let screen_x = get_screen_dimensions(0, -50)[0];
 let screen_y = get_screen_dimensions(0, -50)[1];
@@ -68,31 +73,39 @@ function user_input() {
         let valid = false;
         if (circle_active && ((44.25 < circle_x) && (circle_x < 54.25)) && !(valid) && !(circle_click_attempt)) {
             score += 150;
+            pulse_popup(150);
             console.log("Great");
             valid = true;
         }
         if (circle_active && ((39.25 < circle_x) && (circle_x < 59.25)) && !(valid) && !(circle_click_attempt)) {
             score += 100;
+            pulse_popup(100);
             console.log("Okay");
             valid = true;
         }
         if (circle_active && ((34.25 < circle_x) && (circle_x < 64.25)) && !(valid) && !(circle_click_attempt)) {
             score += 50;
+            pulse_popup(50);
             console.log("Meh");
             valid = true;
         }
         if (circle_active && circle_click_attempt && !(valid)) {
             score -= 100;
+            pulse_popup(-100);
             console.log("Miss");
             valid = true;
         }
         if (!(circle_active)) {
             score -= 100;
+            pulse_popup(-100);
             console.log("miss");
             valid = true;
         }
         if (valid) {
             update_score_display(score, circle_active_count*150);
+        }
+        else {
+            pulse_popup(0);
         }
         circle_click_attempt = true;
     }
@@ -149,6 +162,7 @@ function calculate_circle() {
         circle.style.left = "100%";
         if (!(circle_click_attempt)) {
             score -= 100;
+            pulse_popup(-100)
             update_score_display(score, circle_active_count*150);
         }
     }
@@ -194,4 +208,39 @@ function update_score_display(score, total_possible) {
     }
     text = score + " / " + total_possible + " | " + percentage + "%";
     score_display.innerHTML = text;
+}
+
+function pulse_popup(score_gotten) {
+    // hello there
+    pulse_start = Date.now();
+    pulse_interval = setInterval(calculate_pulse, 10, score_gotten);
+}
+
+function calculate_pulse(score_gotten) { // I hope that this code works. I haven't tested it, and also Vim doesn't show any errors or warnings.
+    let pulse_delay = Date.now() - pulse_start;
+    if (pulse_delay > 250) {
+        clearInterval(pulse_interval);
+        pulse_interval = null;
+        pulse.style.display = "none";
+        return;
+    }
+    pulse.style.display = "block";
+    // The following switch statement was written entirely in Vim. I really feel like I'm getting faster and that the mindblock that used to come with using vim is now almost gone.
+    switch(score_gotten){
+        case 150:
+            pulse.innerHTML = "Great! +150";
+            break;
+        case 100:
+            pulse.innerHTML = "Good. +100";
+            break;
+        case 50:
+            pulse.innerHTML = "Meh. +50";
+            break;
+        case -100:
+            pulse.innerHTML = "Really bad miss! -100";
+            break;
+        default:
+            pulse.innerHTML = "Miss.";
+            break;
+    }
 }
