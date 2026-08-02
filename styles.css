@@ -137,3 +137,10 @@ header {
     left: 50%;
     transform: translate(-50%, -20%);
 }
+
+#tip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -220%); /* I have to do this for some reason, -100% doesn't work*/
+}

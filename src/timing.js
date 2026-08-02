@@ -18,8 +18,8 @@ To-do list
 [x] Start and end the program
 [x] Circle is triggered.
 [x] Circle moves across the screen
-[] Calculation of accuracy
-[] Alerting the user of accuracy
+[x] Calculation of accuracy
+[x] Alerting the user of accuracy
 
 How accuracy is calculated
 - Click when circle isn't even active = -100 points. At the end, if the number is below 0, it gets set to 0
@@ -27,12 +27,11 @@ How accuracy is calculated
 - Click 10% before or after = +100 points
 - Click 5% before or after = +300 points
 - Miss the circle entirely and don't click before the circle reaches the end = -100 points
+
+Now that I've done everything that this comment says I need to do, I could like delete it, but I'm just going to leave it here because why now? And also because I'm too lazy to delete it.
 */
-
 // States
-let testing = false;
-
-// Time
+let testing = false; // Time
 let start_time;
 let circle_start_time;
 let circle_last_time = Date.now();
@@ -229,18 +228,23 @@ function calculate_pulse(score_gotten) { // I hope that this code works. I haven
     switch(score_gotten){
         case 150:
             pulse.innerHTML = "Great! +150";
+            pulse.style.color = "cyan";
             break;
         case 100:
-            pulse.innerHTML = "Okay. 100";
+            pulse.innerHTML = "Okay. +100";
+            pulse.style.color = "lime";
             break;
         case 50:
             pulse.innerHTML = "Meh. +50";
+            pulse.style.color = "yellow";
             break;
         case -100:
             pulse.innerHTML = "Really bad miss! -100";
+            pulse.style.color = "Red";
             break;
         default:
             pulse.innerHTML = "Miss.";
+            pulse.style.color = "orange";
             break;
     }
 }
