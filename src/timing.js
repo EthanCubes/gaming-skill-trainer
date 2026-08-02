@@ -94,6 +94,7 @@ function user_input() {
             valid = true;
         }
         circle_click_attempt = true;
+        update_score_display(score, circle_active_count*150);
     }
     else {
         // Activation
@@ -148,6 +149,7 @@ function calculate_circle() {
         circle.style.left = "100%";
         if (!(circle_click_attempt)) {
             score -= 100;
+            update_score_display(score, circle_active_count*150);
         }
     }
 }
@@ -185,10 +187,10 @@ function remove_suffix(text) {
 function update_score_display(score, total_possible) {
     let percentage;
     if (total_possible === 0) {
-        percentage = 100;
+        percentage = "100.00";
     }
     else {
-        percentage = (score / total_possible)*100;
+        percentage = ((score / total_possible)*100).toFixed(2);
     }
     text = score + " / " + total_possible + " | " + percentage + "%";
     score_display.innerHTML = text;
