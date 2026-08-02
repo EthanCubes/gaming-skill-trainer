@@ -50,6 +50,7 @@ const message = document.getElementById("message");
 const circle = document.getElementById("precision_circle");
 const line = document.getElementById("hit_line");
 const screen_dimension_searcher = document.getElementById("screen_dimension_searcher");
+const score_display = document.getElementById("score_display");
 
 let screen_x = get_screen_dimensions(0, -50)[0];
 let screen_y = get_screen_dimensions(0, -50)[1];
@@ -179,4 +180,16 @@ function remove_suffix(text) {
         }
     }
     return result;
+}
+
+function update_score_display(score, total_possible) {
+    let percentage;
+    if (total_possible === 0) {
+        percentage = 100;
+    }
+    else {
+        percentage = (score / total_possible)*100;
+    }
+    text = score + " / " + total_possible + " | " + percentage + "%";
+    score_display.innerHTML = text;
 }
