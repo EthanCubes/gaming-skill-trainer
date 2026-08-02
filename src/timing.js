@@ -93,8 +93,10 @@ function user_input() {
             console.log("miss");
             valid = true;
         }
+        if (valid) {
+            update_score_display(score, circle_active_count*150);
+        }
         circle_click_attempt = true;
-        update_score_display(score, circle_active_count*150);
     }
     else {
         // Activation
