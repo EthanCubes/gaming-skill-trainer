@@ -55,8 +55,6 @@ const score_display = document.getElementById("score_display");
 let screen_x = get_screen_dimensions(0, -50)[0];
 let screen_y = get_screen_dimensions(0, -50)[1];
 
-alert("This program can give inaccurate results when your device is delayed. ")
-
 // Intervals and event listeners
 setInterval(gameloop, 10);
 document.addEventListener("click", user_input);
