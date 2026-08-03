@@ -3,9 +3,10 @@ Yo i did not think that a timer would take me this long
 */
 
 let timing = 0; // 0 is not timing, 1 is timing, 2 is paused, 3 is ending
-let start_time;
+let start_timer;
 let end_time = Date.now();
 let pause_start;
+let time_elapsed;
 
 let timer_interval;
 
@@ -25,12 +26,16 @@ function user_input() {
             break;
         case 1:
             // somehow pauses the game
+            time_elapsed = Date.now() - start_timer;
+            clearInterval(timer_interval);
             // Add two buttons to reset timer and restart timer.
             pause_start = Date.now();
             timing = 2;
             break;
         case 2: 
             // somehow resumes the timer
+            start_timer = Date.now() - time_elapsed;
+            timer_interval = setInterval(update_timer, 10);
             timing = 1;
             break;
         case 3: 
