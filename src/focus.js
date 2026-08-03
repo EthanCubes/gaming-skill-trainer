@@ -7,6 +7,8 @@ const key6 = document.getElementById("key6");
 const key7 = document.getElementById("key7");
 const key8 = document.getElementById("key8");
 
+let mode = 0; // 0 is idle, 1 is running, 2 is selection, 3 is end
+
 const position_position_index = [[80, 20], [90, 20], [80, 40], [90, 40], [80, 60], [90], [60], [80, 80], [90, 80]];
 let position_list = [key1, key2, key3, key4, key5, key6, key7, key8];
 const default_positions = [key1, key2, key3, key4, key5, key6, key7, key8];
@@ -17,6 +19,44 @@ let key_move_count = 0;
 
 let move_keys_interval;
 let render_move_keys;
+
+// Intervals and event listeners
+document.addEventListener("click", user_input);
+
+// Functions because yeah
+function user_input() {
+    switch(mode) {
+        case 0:
+            // Trigger the starting sequence
+            break;
+        case 1:
+            // uh idk what's supposed to happen when the user clicks here, there's nothing that really should be happening during this time that the user can control
+            break;
+        case 2: 
+            // IDK if I want the user to select the key with the number keys or with the mouse. I guess I'll put 8 buttons at the bottom that trigger the number keys.
+            break;
+        case 3:
+            // Ends the program and resets to the beginning. 
+            break;
+    }
+}
+
+function gameloop() {
+    switch(mode) {
+        case 0:
+            // Resets the position to default.
+            break;
+        case 1:
+            // If the movement is already in place, don't do anyhing. If the movemen t has not been triggered, trigger it.
+            break;
+        case 2: 
+            // idk what to add here. 
+            break;
+        case 3:
+            // idk what to add here.
+            break;
+    }
+}
 
 function position_keys() {
     index = 0;
