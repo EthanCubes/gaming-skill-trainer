@@ -76,11 +76,12 @@ function get_key_pos(start_pos, end_pos, delay, duration) {
     if (start_pos[0] === end_pos[0]) { // startpos and endpos 0 is the x position. This checks for a vertical line.
         // how to deal with vertical slope
         x_pos = start_pos[0];
-        y_pos = -1 * (start_pos[1] - end_pos[1]) * delay / duration;
+        y_pos = (end_pos[1] - start_pos[1]) * delay / duration;
+        y_pos += start_pos[1];
         return [x_pos, y_pos];
     }
-    slope = (start_pos[1] - end_pos[1]) / (start_pos[0] - end_pos[0]);
-    x_pos = (start_pos[0] - end_pos[0]) * delay / duration;
+    slope = (end_pos[1] - start_pos[1]) / (end_pos[0] - start_pos[0]);
+    x_pos = (end_pos[0] - start_pos[0]) * delay / duration;
     y_pos = x_pos * slope;
     x_pos += start_pos[0];
     y_pos += start_pos[1];
