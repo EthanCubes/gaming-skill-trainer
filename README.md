@@ -16,6 +16,7 @@ A lot of JavaScript and CSS. Only vanilla JavaScript was used, no frameworks or 
 
 ## Credits
 - This [Stack Overflow question](https://stackoverflow.com/questions/8454510/open-url-in-same-window-and-in-same-tab) helped with opening the link in the same tab.
+- This [Stack Overflow question](https://stackoverflow.com/questions/9419263/how-to-play-audio) helped with playing audio for the timer ringtone.
 - [DeepSeek](deepseek.com) helped with debugging, as much as I don't want to admit it.
 - [w3schools](https://w3schools.com/), [geeksForGeeks](https://geeksforgeeks.org/), and [MDN Web Docs](https://developer.mozilla.org/) all helped a lot with knowing what commands to use and what they do. As much as I've become used to coding in JavaScript, there's still a lot I don't know (or that I tend to forget).
 - This program was written in [Visual Studio Code](https://code.visualstudio.com/) and [Vim](https://www.vim.org/). Even inside of VSCode, I was using the Vim extension.
