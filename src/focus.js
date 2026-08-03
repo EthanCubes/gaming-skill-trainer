@@ -22,6 +22,7 @@ let render_move_keys;
 
 // Intervals and event listeners
 document.addEventListener("click", user_input);
+document.addEventListener("keyup", key_press);
 
 // Functions because yeah
 function user_input() {
@@ -40,6 +41,12 @@ function user_input() {
             break;
     }
 }
+
+function key_press() {
+    if (mode === 2) {
+        // uhh actually do the selecting
+    }
+
 
 function gameloop() {
     switch(mode) {
