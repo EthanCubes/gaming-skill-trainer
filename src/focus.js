@@ -16,6 +16,7 @@ let key_move_interval;
 
 reset();
 
+// All the functions and stuff.
 function reset() {
     position_list = deepcopy(default_positions);
     position_keys();
@@ -66,6 +67,22 @@ function key_movement() {
             diagonal_swap();
             break;
     }
+}
+
+function get_key_pos(start_pos, end_pos, delay, duration) {
+    let slope;
+    let x_pos;
+    let y_pos;
+    if (start_pos[0] === end_pos[0]) { // startpos and endpos 0 is the x position. This checks for a vertical line.
+        // how to deal with vertical slope
+        x_pos = start_pos[0];
+        y_pos = -1 * (start_pos[1] - end_pos[1]) * delay / duration;
+    }
+    slope = (start_pos[1] - end_pos[1]) / (start_pos[0] - end_pos[0]);
+    x_pos = (start_pos[0] - end_pos[0]) * delay / duration;
+    y_pos = x_pos * slope;
+    x_pos += start_pos[0];
+    y_pos += start_pos[1];
 }
 
 // Determining the final position of the keys
