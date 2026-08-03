@@ -14,6 +14,14 @@ const default_positions = [key1, key2, key3, key4, key5, key6, key7, key8];
 let key_move_count = 0;
 let key_move_interval;
 
+reset();
+
+function reset() {
+    position_list = deepcopy(default_positions);
+    position_keys();
+}
+
+// This program moves all the keys instantly, which is therefore not suitable for usage in actually moving the keys, only in reseting the keys.
 function position_keys() {
     for (let i = 0; i < 8; i++) {
         const key = position_list[i];
@@ -23,7 +31,7 @@ function position_keys() {
 }
 
 function key_movement() {
-    console.log("key move!")
+    console.log("key move!");
     key_move_count += 1;
     if (key_move_count === 1) {
         key_move_interval = setInterval(key_movement, 250);
@@ -212,8 +220,8 @@ function key_rotation() {
 
 function deepcopy(list) {
     let copy = [];
-    for (const item in list) {
-        copy.push(item);
+    for (let i = 0; i < list.length; i++) {
+        copy.push(list[i]);
     }
     return copy;
 }
