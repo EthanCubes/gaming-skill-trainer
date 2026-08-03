@@ -49,7 +49,7 @@ function update_timer() {
     let second_display;
     let minute_display;
     let ms_elapsed = Date.now() - start_timer;
-    let seconds_left = 12 - ms_elapsed / 1000;
+    let seconds_left = 1200 - ms_elapsed / 1000;
     seconds_left = Math.round(seconds_left);
     // reset the timer when the timer runs out.
     if (seconds_left <= 0) {
