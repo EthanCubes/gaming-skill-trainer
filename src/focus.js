@@ -201,17 +201,36 @@ function key_rotation() {
     return temporary_list;
 }
 
-function render_key_movement(target_position) {
-    time_offset += 10;
-    if (time_offset > 230) {
-        clearInterval(render_move_keys);
-        render_move_keys = null;
-        return;
-    }
-    for (const item in target_position) {
-        let current_position = position_list.indexOf(item);
-    }
+function render_key_movement(start_pos, end_pos, delay, duration) {
+    if (start_pos[0] === end_pos[0]) {
+        // slope is vertical (infinity), switch to vertical calculation of distance
+        let x_pos = start_position[0];
+        let y_pos = Math.abs(start_position[1] - end_position[1]) * delay / duration;
+        x_pos += start_pos[0];
+        y_pos += start_pos[1];
+        return [x_pos, y_pos];
+    } 
+    let slope = (start_pos[1] - end_pos[1]) / (start_pos[0] - end_pos[0]);
+    // y = kx + b. For every millisecond, it move [x distance] / 250. Somehow. IDK how.
+    // This should theoretically work with when the slope is 0
+    let x_pos = (Math.abs(start_pos[0] - end_pos[0]) / duration) * delay;
+    let y_pos = slope * x_pos
+    x_pos += start_pos[0];
+    y_pos += start_pos[1];
+    return [x_pos, y_pos];
 }
+
+/*
+ * So I'm about to drop an entire essay on how this script is about to work because this is that hard.
+ * Let's go
+ * For each indiviual key, they take 250 milliseconds to move completely. So they have to travel the entire course of the distance from the current position to the desired position in exactly 250 milliseconds. So when we are given the start position, end position, the offset, and the time that has been traveled thus far, we can use some linear algebra to calculate the exact position of the key at any point in time. Depending on your mathematical proficiency, you could think it's easier or hard. To me, it seemed easy at first, but now that I've though about it slightly, I have no fricking idea of how I'm supposed to accoplish it. If my parents (Asian) knew I was struggling on this problem, they'd be so disappointed.
+ *
+ * I'm just going to talk it out because that's like how Harvard's CS50 recommends how to solve problems: by talking to a rubber duck. Since I don't have a rubber duck on my desk, and I can't be bothered to get something I can talk to, I'm just going to be typing stuff inside this comment. Which is going to be long as hell. 
+ *
+ * First, we need to have a function with several inputs: starting position, target position, and time passed. This entire comment is going to be split into two parts: sending the required data to the function, and actually writing the function itself. Considering that I have a somewhat solid understanding of math, I should write the entire function first. So that's what I am going to be figuring out first:
+ * 
+ * The first step to finding the position of the key at the current moment is to find the slope of the line segement between the two points of the starting position and the ending position. Then, we have to get the position of the key relative to the starting position, which isn't even that hard. IDK why I'm struggling on this so much. THen, we have to add like hte actual position of the starting position in order to find the actual position of the key. Lastly, we have to do this for all 8 keys and return a value that works regardless of screen resolution. I am running a 1600x900 screen from 2013, so yeah... if it works on my screen it should work on yours.
+*/
 
 function move_keys() {
     key_move_count += 1;
