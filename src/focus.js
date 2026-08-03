@@ -7,13 +7,19 @@ const key6 = document.getElementById("key6");
 const key7 = document.getElementById("key7");
 const key8 = document.getElementById("key8");
 
-const position_position_index = [[80, 20], [90, 20], [80, 40], [90, 40], [80, 60], [90], [60], [80, 80], [90, 80]];
+const position_position_index = [[80, 20], [90, 20], [80, 40], [90, 40], [80, 60], [90, 60], [80, 80], [90, 80]];
 let position_list = [key1, key2, key3, key4, key5, key6, key7, key8];
 const default_positions = [key1, key2, key3, key4, key5, key6, key7, key8];
 
-position_keys();
+function position_keys() {
+    for (let i = 0; i < 8; i++) {
+        const key = position_list[i];
+        key.style.left = position_position_index[i][0] + "%";
+        key.style.top = position_position_index[i][1] + "%";
+    }
+}
 
-// Movement 
+// Determining the final position of the keys
 function small_rotation() {
     let temporary_list = deepcopy(position_list);
     if (Math.random() < 0.5) {
