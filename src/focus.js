@@ -15,7 +15,7 @@ let time_offset = 0;
 
 let key_move_count = 0;
 
-let move_keys;
+let move_keys_interval;
 let render_move_keys;
 
 function position_keys() {
@@ -238,7 +238,7 @@ function move_keys() {
         move_keys_interval = setInterval(move_keys, 250);
     }
     if (key_move_count > 26) {
-        clearInterval(moveKeys);
+        clearInterval(move_keys_interval);
         move_keys = null;
         key_move_count = 0;
     }
