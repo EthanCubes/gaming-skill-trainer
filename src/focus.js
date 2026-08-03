@@ -1,3 +1,4 @@
+// Document selection.
 const key1 = document.getElementById("key1");
 const key2 = document.getElementById("key2");
 const key3 = document.getElementById("key3");
@@ -7,12 +8,17 @@ const key6 = document.getElementById("key6");
 const key7 = document.getElementById("key7");
 const key8 = document.getElementById("key8");
 
+// Position list
 const position_position_index = [[80, 20], [90, 20], [80, 40], [90, 40], [80, 60], [90, 60], [80, 80], [90, 80]];
 let position_list = [key1, key2, key3, key4, key5, key6, key7, key8];
 const default_positions = [key1, key2, key3, key4, key5, key6, key7, key8];
 
 let key_move_count = 0;
 let key_move_interval;
+
+// Event listeners and user input
+document.addEventListener("click", user_input)
+document.addEventListener("keydown", function(event) {collect_key(event.key)});
 
 reset();
 
@@ -23,6 +29,14 @@ function reset() {
 }
 
 // This program moves all the keys instantly, which is therefore not suitable for usage in actually moving the keys, only in reseting the keys.
+function user_input() {
+    // pass
+}
+
+function collect_key(pressed) {
+    console.log(pressed);
+}
+
 function position_keys() {
     for (let i = 0; i < 8; i++) {
         const key = position_list[i];
@@ -32,10 +46,14 @@ function position_keys() {
 }
 
 function key_movement() {
-    console.log("key move!");
     key_move_count += 1;
     if (key_move_count === 1) {
         key_move_interval = setInterval(key_movement, 250);
+        return;
+    }
+    if (key_move_count === 27) {
+        key_move_count = 0;
+        clearInterval(key_move_interval);
         return;
     }
     if (key_move_count === 6) {
