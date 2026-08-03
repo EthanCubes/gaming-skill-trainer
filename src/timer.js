@@ -24,6 +24,7 @@ function user_input() {
     switch(timing) {
         case 0:
             // start the timer
+            document.body.style.backgroundColor = "rgb(50, 50, 50)";
             timer_interval = setInterval(update_timer, 10);
             timing = 1;
             start_timer = Date.now();
@@ -45,6 +46,7 @@ function user_input() {
             timing = 1;
             break;
         case 3: 
+            document.body.style.backgroundColor = "black";
             timing = 0;
             ringtone.pause();
             break;
@@ -80,4 +82,5 @@ function restart_timer() {
     timing = 0;
     message.style.display = "none";
     timer.innerHTML = "20:00";
+    document.body.style.backgroundColor = "black";
 }
