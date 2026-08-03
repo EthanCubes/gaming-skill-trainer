@@ -11,11 +11,52 @@ const position_position_index = [[80, 20], [90, 20], [80, 40], [90, 40], [80, 60
 let position_list = [key1, key2, key3, key4, key5, key6, key7, key8];
 const default_positions = [key1, key2, key3, key4, key5, key6, key7, key8];
 
+let key_move_count = 0;
+let key_move_interval;
+
 function position_keys() {
     for (let i = 0; i < 8; i++) {
         const key = position_list[i];
         key.style.left = position_position_index[i][0] + "%";
         key.style.top = position_position_index[i][1] + "%";
+    }
+}
+
+function key_movement() {
+    console.log("key move!")
+    key_move_count += 1;
+    if (key_move_count === 1) {
+        key_move_interval = setInterval(key_movement, 250);
+        return;
+    }
+    if (key_move_count === 6) {
+        block_swap();
+        return;
+    }
+    if ((key_move_count === 10) || (key_move_count === 19)) {
+        key_rotation();
+        return;
+    }
+    index = Math.floor(Math.random()*6);
+    switch(index) {
+        case 0:
+            small_rotation();
+            break;
+        case 1:
+            big_rotation();
+            break;
+        case 2:
+            shuffle();
+            break;
+        case 3: 
+            top_bottom_swap();
+            break;
+        case 4:
+            swap();
+            break;
+        case 5:
+            diagonal_swap();
+            break;
     }
 }
 
@@ -63,7 +104,7 @@ function big_rotation() {
     else {
         temporary_list[0] = position_list[1];
         temporary_list[1] = position_list[3];
-        temporary_list[2] = posiiton_list[0];
+        temporary_list[2] = position_list[0];
         temporary_list[3] = position_list[5];
         temporary_list[4] = position_list[2];
         temporary_list[5] = position_list[7];
@@ -77,7 +118,7 @@ function shuffle() {
     if (Math.random() < 0.5) {
         temporary_list[0] = position_list[0];
         temporary_list[1] = position_list[2];
-        temporary_list[2] = posiiton_list[1];
+        temporary_list[2] = position_list[1];
         temporary_list[3] = position_list[4];
         temporary_list[4] = position_list[3];
         temporary_list[5] = position_list[6];
@@ -87,7 +128,7 @@ function shuffle() {
     else {
         temporary_list[0] = position_list[3];
         temporary_list[1] = position_list[1];
-        temporary_list[2] = posiiton_list[5];
+        temporary_list[2] = position_list[5];
         temporary_list[3] = position_list[0];
         temporary_list[4] = position_list[7];
         temporary_list[5] = position_list[2];
@@ -101,7 +142,7 @@ function top_bottom_swap() {
     if (Math.random() < 0.5) {
         temporary_list[0] = position_list[2];
         temporary_list[1] = position_list[3];
-        temporary_list[2] = posiiton_list[4];
+        temporary_list[2] = position_list[4];
         temporary_list[3] = position_list[5];
         temporary_list[4] = position_list[6];
         temporary_list[5] = position_list[7];
@@ -111,7 +152,7 @@ function top_bottom_swap() {
     else {
         temporary_list[0] = position_list[6];
         temporary_list[1] = position_list[7];
-        temporary_list[2] = posiiton_list[0];
+        temporary_list[2] = position_list[0];
         temporary_list[3] = position_list[1];
         temporary_list[4] = position_list[2];
         temporary_list[5] = position_list[3];
@@ -124,7 +165,7 @@ function swap() {
     let temporary_list = deepcopy(position_list);
     temporary_list[0] = position_list[1];
     temporary_list[1] = position_list[0];
-    temporary_list[2] = posiiton_list[3];
+    temporary_list[2] = position_list[3];
     temporary_list[3] = position_list[2];
     temporary_list[4] = position_list[5];
     temporary_list[5] = position_list[4];
@@ -136,7 +177,7 @@ function diagonal_swap() {
     let temporary_list = deepcopy(position_list);
     temporary_list[0] = position_list[3];
     temporary_list[1] = position_list[2];
-    temporary_list[2] = posiiton_list[1];
+    temporary_list[2] = position_list[1];
     temporary_list[3] = position_list[0];
     temporary_list[4] = position_list[7];
     temporary_list[5] = position_list[6];
@@ -148,7 +189,7 @@ function block_swap() {
     let temporary_list = deepcopy(position_list);
     temporary_list[0] = position_list[4];
     temporary_list[1] = position_list[5];
-    temporary_list[2] = posiiton_list[6];
+    temporary_list[2] = position_list[6];
     temporary_list[3] = position_list[7];
     temporary_list[4] = position_list[1];
     temporary_list[5] = position_list[2];
@@ -160,7 +201,7 @@ function key_rotation() {
     let temporary_list = deepcopy(position_list);
     temporary_list[0] = position_list[7];
     temporary_list[1] = position_list[6];
-    temporary_list[2] = posiiton_list[5];
+    temporary_list[2] = position_list[5];
     temporary_list[3] = position_list[4];
     temporary_list[4] = position_list[3];
     temporary_list[5] = position_list[2];
