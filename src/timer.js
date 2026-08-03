@@ -1,9 +1,15 @@
-let timing = 0; // 0 is not timing, 1 is timing, 2 is paused
+/*
+Yo i did not think that a timer would take me this long
+*/
+
+let timing = 0; // 0 is not timing, 1 is timing, 2 is paused, 3 is ending
 let start_time;
 let end_time = Date.now();
 let pause_start;
 
 let timer_interval;
+
+const ringtone = new Audio("src/assets/739991_Creo---Sphere.mp3");
 
 document.addEventListener("click", user_input);
 
@@ -18,11 +24,18 @@ function user_input() {
             start_timer = Date.now();
             break;
         case 1:
+            // somehow pauses the game
+            // Add two buttons to reset timer and restart timer.
             pause_start = Date.now();
             timing = 2;
             break;
         case 2: 
+            // somehow resumes the timer
             timing = 1;
+            break;
+        case 3: 
+            timing = 0;
+            ringtone.pause();
             break;
     }
 }
@@ -31,11 +44,11 @@ function update_timer() {
     let second_display;
     let minute_display;
     let ms_elapsed = Date.now() - start_timer;
-    let seconds_left = 1200 - ms_elapsed / 1000;
+    let seconds_left = 12 - ms_elapsed / 1000;
     seconds_left = Math.round(seconds_left);
     // reset the timer when the timer runs out.
     if (seconds_left <= 0) {
-        timing = 0;
+        timing = 3;
         clearInterval(timer_interval);
         timer_interval = null;
         timer_end();
@@ -46,5 +59,6 @@ function update_timer() {
 }
 
 function timer_end() {
-    // idk
+    console.log("Time's up!");
+    ringtone.play();
 }
