@@ -13,8 +13,12 @@ let timer_interval;
 const ringtone = new Audio("src/assets/739991_Creo---Sphere.mp3");
 
 document.addEventListener("click", user_input);
+document.addEventListener("keyup", function(event) {
+    if (event.key === "r") {restart_timer();}
+});
 
 timer = document.getElementById("timer");
+message = document.getElementById("message");
 
 function user_input() {
     switch(timing) {
@@ -26,6 +30,7 @@ function user_input() {
             break;
         case 1:
             // somehow pauses the game
+            message.style.display = "block";
             time_elapsed = Date.now() - start_timer;
             clearInterval(timer_interval);
             // Add two buttons to reset timer and restart timer.
@@ -34,6 +39,7 @@ function user_input() {
             break;
         case 2: 
             // somehow resumes the timer
+            message.style.display = "none";
             start_timer = Date.now() - time_elapsed;
             timer_interval = setInterval(update_timer, 10);
             timing = 1;
@@ -66,4 +72,12 @@ function update_timer() {
 function timer_end() {
     console.log("Time's up!");
     ringtone.play();
+}
+
+function restart_timer() {
+    clearInterval(timer_interval);
+    timer_interval = null;
+    timing = 0;
+    message.style.display = "none";
+    timer.innerHTML = "20:00";
 }
