@@ -224,11 +224,24 @@ function key_movement() {
             temp_position = deepcopy(diagonal_swap());
             break;
     }
-    position_list = deepcopy(temp_position);
-    position_keys();
+    move_keys();
 }
 
-function move_keys() {}
+function move_keys() {
+    for (let i = 0; i < 8; i++) {
+        let current_position = position_list[i];
+        let desired_position_key = temp_position.indexOf(current_position);
+        let desired_position_left = position_position_index[desired_position_key][0];
+        let desired_position_top = position_position_index[desired_position_key][1];
+        console.log(current_position);
+        console.log(desired_position_key);
+        console.log(desired_position_left);
+        console.log(desired_position_top);
+        current_position.style.left = desired_position_left + "%";
+        current_position.style.top = desired_position_top + "%";
+    }
+    position_list = deepcopy(temp_position);
+}
 
 // Determining the final position of the keys like during movement, not lik final final.
 function small_rotation() {
