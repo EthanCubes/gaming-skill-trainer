@@ -92,6 +92,9 @@ function gameloop() {
             break;
         case 3:
             message.innerHTML = "Pick a key";
+            if ((Date.now() - mode_start_time) > 250) {
+                colorize();
+            }
             break;
         case 4:
             message.innerHTML = "Click anywhere to continue";
@@ -112,6 +115,9 @@ function reset() {
     key_move_count = 0;
     mode = 0;
     key_selected = false;
+    for (let i = 0; i < 8; i++) {
+        position_list[i].style.backgroundColor = "rgb(200, 125, 50)";
+    }
 }
 
 function user_input() {
@@ -168,7 +174,7 @@ function key_movement() {
         key_move_count = 0;
         clearInterval(key_move_interval);
         mode = 3;
-        colorize();
+        mode_start_time = Date.now();
         return;
     }
     console.log(key_move_count);
