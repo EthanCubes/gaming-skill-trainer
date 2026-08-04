@@ -53,7 +53,7 @@ function gameloop() {
             message.innerHTML = "Focus...";
             if ((Date.now() - mode_start_time) > 500) {
                 mode = 2;
-                key_move_interval = setInterval(key_movement, 250);
+                key_move_interval = setInterval(key_movement, 300);
             }
             if (!(key_selected)) {
                 let index = Math.round(Math.random() * 7);

@@ -101,7 +101,7 @@ header {
     border-radius: 50%;
     background-color: rgb(200, 125, 50);
     position: absolute;
-    transition: left 240ms, top 240ms;
+    transition: left 300ms, top 300ms;
 }
 
 #precision_circle {
