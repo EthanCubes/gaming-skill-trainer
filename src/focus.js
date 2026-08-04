@@ -99,6 +99,13 @@ function gameloop() {
     }
 }
 
+function colorize() {
+    const color_list = ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink"];
+    for (let i = 0; i < 8; i++) {
+        position_list[i].style.backgroundColor = color_list[i];
+    }
+}
+
 function reset() {
     position_list = deepcopy(default_positions);
     position_keys();
@@ -161,6 +168,7 @@ function key_movement() {
         key_move_count = 0;
         clearInterval(key_move_interval);
         mode = 3;
+        colorize();
         return;
     }
     console.log(key_move_count);
