@@ -228,6 +228,8 @@ function render_key_position() {
         key_move_render_interval = null;
     }
     for (let i = 0; i < 8; i++) {
+        console.log(position_list[i]);
+        let current_key = position_list[i]
         let start_pos = [position_list[i].styles.left, position_list[i].styles.top];
         let end_pos = temp_position.indexOf(position_list[i]);
         let position_of_key = get_key_pos(start_pos, end_pos, delay, 250);
@@ -256,7 +258,7 @@ function get_key_pos(start_pos, end_pos, delay, duration) {
     return [x_pos, y_pos];
 }
 
-// Determining the final position of the keys
+// Determining the final position of the keys like during movement, not lik final final.
 function small_rotation() {
     let temporary_list = deepcopy(position_list);
     if (Math.random() < 0.5) {
@@ -412,4 +414,18 @@ function deepcopy(list) {
         copy.push(list[i]);
     }
     return copy;
+}
+
+function remove_suffix(text) {
+    let result = "";
+    let dot_count = 0;
+    for (let i = 0; i < text.length; i++) {
+        if (!(isNaN(text[i]/2)) || (text[i] === "." && dot_count === 0)) {
+            if (text[i] === ".") {
+                dot_count += 1;
+            }
+            result += text[i];
+        }
+    }
+    return result;
 }
