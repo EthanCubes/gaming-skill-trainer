@@ -8,6 +8,8 @@ const key6 = document.getElementById("key6");
 const key7 = document.getElementById("key7");
 const key8 = document.getElementById("key8");
 
+const message = document.getElementById("message");
+
 // Position list
 const position_position_index = [[80, 20], [90, 20], [80, 40], [90, 40], [80, 60], [90, 60], [80, 80], [90, 80]];
 let position_list = [key1, key2, key3, key4, key5, key6, key7, key8];
@@ -18,13 +20,32 @@ let key_move_interval;
 
 let mode = 0; // 0 is idle, 1 is running, 2 is picking, 3 is ended
 
-// Event listeners and user input
+// Event listeners and intervals
 document.addEventListener("click", user_input)
 document.addEventListener("keydown", function(event) {collect_key(event.key)});
+setInterval(gameloop, 10);
 
 reset();
 
 // All the functions and stuff.
+
+function gameloop() {
+    switch(mode) {
+        case 0:
+            message.innerHTML = "Click anywhere to start...";
+            break;
+        case 1:
+            message.innerHTML = "FOCUS";
+            break;
+        case 2:
+            message.innerHTML = "Pick a key";
+            break;
+        case 3:
+            message.innerHTML = "Click anywhere to continue";
+            break;
+    }
+}
+
 function reset() {
     position_list = deepcopy(default_positions);
     position_keys();
@@ -37,6 +58,7 @@ function user_input() {
         case 0:
             console.log(key_move_count);
             // trigger the start of the sequence
+            mode = 1;
             key_move_interval = setInterval(key_movement, 250);
             break;
         case 3:
