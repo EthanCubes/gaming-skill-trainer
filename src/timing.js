@@ -55,6 +55,7 @@ const line = document.getElementById("hit_line");
 const screen_dimension_searcher = document.getElementById("screen_dimension_searcher");
 const score_display = document.getElementById("score_display");
 const pulse = document.getElementById("popup");
+const timer = document.getElementById("timing_timer");
 
 let screen_x = get_screen_dimensions(0, -50)[0];
 let screen_y = get_screen_dimensions(0, -50)[1];
@@ -123,7 +124,8 @@ function gameloop() {
     switch(testing) {
         case true:
             message.style.display = "none";
-            document.body.style.backgroundColor = "rgb(25,25,25)";
+            let delay = (20 - ((Date.now() - start_time) / 1000)).toFixed(2);
+            timer.innerHTML = delay;
             if (((Date.now() - circle_last_time) > 750) && !(circle_active) && ((Date.now() - start_time) < 17500)) {
                 // trigger the circle to go darting across the screen. we know that this is triggered from a previous debug statement that i have now removed
            	    circle_start_time = Date.now(); 
