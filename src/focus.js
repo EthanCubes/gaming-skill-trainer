@@ -33,7 +33,7 @@ let mode_start_time = Date.now();
 
 // Program randomly selects a key that the user will have to track and related stuff.
 let key_picked = false;
-let picked_key = undefined;
+let selected_key = undefined;
 
 // Event listeners and intervals
 document.addEventListener("click", user_input)
@@ -83,7 +83,6 @@ function gameloop() {
                         selected_key = key8;
                         break;
                 }
-                console.log("Hi");
                 selected_key.style.backgroundColor = "green";
                 key_selected = true;
             }
@@ -136,43 +135,44 @@ function user_input() {
 function collect_key(pressed) {
     let user_selected_key;
     if (!(mode === 3)) {
-        return;
+        // return;
     }
     switch(pressed) {
         case "1":
-            user_selected_key = key1;
+            user_selected_key = position_list[0];
             break;
         case "2":
-            user_selected_key = key2;
+            user_selected_key = position_list[1];
             break;
         case "3":
-            user_selected_key = key3;
+            user_selected_key = position_list[2];
             break;
         case "4":
-            user_selected_key = key4;
+            user_selected_key = position_list[3];
             break;
         case "5":
-            user_selected_key = key5;
+            user_selected_key = position_list[4];
             break;
         case "6":
-            user_selected_key = key6;
+            user_selected_key = position_list[5];
             break;
         case "7":
-            user_selected_key = key7;
+            user_selected_key = position_list[6];
             break;
         case "8":
-            user_selected_key = key8;
+            user_selected_key = position_list[7];
             break;
         default:
             console.log("default");
             return;
     }
+    console.log(user_selected_key);
     if (selected_key === user_selected_key) {
         // key is selected correctly
     }
     else {
         // key is selected incorrectly, get rickrolled
-        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
     }
     mode = 4;
 }
@@ -224,6 +224,7 @@ function key_movement() {
             temp_position = deepcopy(diagonal_swap());
             break;
     }
+    position_list = deepcopy(temp_position);
     position_keys();
 }
 
