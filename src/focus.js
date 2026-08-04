@@ -223,18 +223,20 @@ function render_key_movement() {
 // Highkey I am not expecting this to work. I haven't tested this yet and code that I haven't tested tends to not work first try. If it works it's going to be an actual miracle.
 function render_key_position() {
     let delay = Date.now() - key_move_render_start;
-    if (delay > 250) {
+    if (delay > 240) {
+        position_list = deepcopy(temp_position);
+        position_keys();
         clearInterval(key_move_render_interval);
         key_move_render_interval = null;
+        return;
     }
     for (let i = 0; i < 8; i++) {
-        console.log(position_list[i]);
         let current_key = position_list[i]
-        let start_pos = [position_list[i].styles.left, position_list[i].styles.top];
-        let end_pos = temp_position.indexOf(position_list[i]);
-        let position_of_key = get_key_pos(start_pos, end_pos, delay, 250);
-        position_list[i].left = position_of_key[0];
-        position_list[i].top = position_of_key[1];
+        let start_pos = [current_key.style.left, current_key.style.top];
+        let end_pos = temp_position.indexOf(current_key);
+        let position_of_key = get_key_pos(start_pos, end_pos, delay, 240);
+        current_key.style.left = position_of_key[0];
+        current_key.style.top = position_of_key[1];
     }
 }
 
