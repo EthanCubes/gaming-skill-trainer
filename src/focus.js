@@ -61,6 +61,7 @@ function key_movement() {
     if (key_move_count === 27) {
         key_move_count = 0;
         clearInterval(key_move_interval);
+        mode = 2;
         return;
     }
     console.log(key_move_count);
@@ -75,24 +76,25 @@ function key_movement() {
     index = Math.floor(Math.random()*6);
     switch(index) {
         case 0:
-            small_rotation();
+            position_list = deepcopy(small_rotation());
             break;
         case 1:
-            big_rotation();
+            position_list = deepcopy(big_rotation());
             break;
         case 2:
-            shuffle();
+            position_list = deepcopy(shuffle());
             break;
         case 3: 
-            top_bottom_swap();
+            position_list = deepcopy(top_bottom_swap());
             break;
         case 4:
-            swap();
+            position_list = deepcopy(swap());
             break;
         case 5:
-            diagonal_swap();
+            position_list = deepcopy(diagonal_swap());
             break;
     }
+    position_keys();
 }
 
 function get_key_pos(start_pos, end_pos, delay, duration) {
