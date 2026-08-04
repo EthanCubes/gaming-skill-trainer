@@ -30,6 +30,10 @@ let key_move_interval;
 let mode = 0; // 0 is idle, 1 is picking which key and displaying to the user, 2 is running, 3 picking the key, 4 is ended
 let mode_start_time = Date.now();
 
+// Program randomly selects a key that the user will have to track and related stuff.
+let key_picked = false;
+let picked_key = undefined;
+
 // Event listeners and intervals
 document.addEventListener("click", user_input)
 document.addEventListener("keydown", function(event) {collect_key(event.key)});
@@ -50,6 +54,38 @@ function gameloop() {
                 mode = 2;
                 key_move_interval = setInterval(key_movement, 250);
             }
+            if (!(key_selected)) {
+                let index = Math.round(Math.random() * 7);
+                switch(index) {
+                    case 0:
+                        selected_key = key1;
+                        break;
+                    case 1:
+                        selected_key = key2;
+                        break;
+                    case 2:
+                        selected_key = key3;
+                        break;
+                    case 3:
+                        selected_key = key4;
+                        break;
+                    case 4:
+                        selected_key = key5;
+                        break;
+                    case 5: 
+                        selected_key = key6;
+                        break;
+                    case 6:
+                        selected_key = key7;
+                        break;
+                    case 7:
+                        selected_key = key8;
+                        break;
+                }
+                console.log("Hi");
+                selected_key.style.backgroundColor = "green";
+                key_selected = true;
+            }
             break;
         case 2:
             message.innerHTML = "FOCUS";
@@ -68,6 +104,7 @@ function reset() {
     position_keys();
     key_move_count = 0;
     mode = 0;
+    key_selected = false;
 }
 
 function user_input() {
