@@ -89,6 +89,8 @@ function gameloop() {
             break;
         case 2:
             message.innerHTML = "FOCUS";
+            console.log(selected_key);
+            selected_key.style.backgroundColor = "rgb(200, 125, 50)";
             break;
         case 3:
             message.innerHTML = "Pick a key";
@@ -166,7 +168,6 @@ function collect_key(pressed) {
             console.log("default");
             return;
     }
-    console.log(user_selected_key);
     if (selected_key === user_selected_key) {
         // key is selected correctly
     }
@@ -233,10 +234,6 @@ function move_keys() {
         let desired_position_key = temp_position.indexOf(current_position);
         let desired_position_left = position_position_index[desired_position_key][0];
         let desired_position_top = position_position_index[desired_position_key][1];
-        console.log(current_position);
-        console.log(desired_position_key);
-        console.log(desired_position_left);
-        console.log(desired_position_top);
         current_position.style.left = desired_position_left + "%";
         current_position.style.top = desired_position_top + "%";
     }
