@@ -29,9 +29,9 @@ function reset() {
     position_list = deepcopy(default_positions);
     position_keys();
     key_move_count = 0;
+    mode = 0;
 }
 
-// This program moves all the keys instantly, which is therefore not suitable for usage in actually moving the keys, only in reseting the keys.
 function user_input() {
     switch(mode) {
         case 0:
@@ -40,12 +40,37 @@ function user_input() {
             key_move_interval = setInterval(key_movement, 250);
             break;
         case 3:
+            reset();
             break;
     } 
 }
 
 function collect_key(pressed) {
-    console.log(pressed);
+    if (!(mode === 2)) {
+        return;
+    }
+    switch(pressed) {
+        case "1":
+            break;
+        case "2":
+            break;
+        case "3":
+            break;
+        case "4":
+            break;
+        case "5":
+            break;
+        case "6":
+            break;
+        case "7":
+            break;
+        case "8":
+            break;
+        default:
+            console.log("default");
+            return;
+    }
+    mode = 3;
 }
 
 function position_keys() {
