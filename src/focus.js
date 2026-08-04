@@ -16,6 +16,8 @@ const default_positions = [key1, key2, key3, key4, key5, key6, key7, key8];
 let key_move_count = 0;
 let key_move_interval;
 
+let mode = 0; // 0 is idle, 1 is running, 2 is picking, 3 is ended
+
 // Event listeners and user input
 document.addEventListener("click", user_input)
 document.addEventListener("keydown", function(event) {collect_key(event.key)});
@@ -26,11 +28,20 @@ reset();
 function reset() {
     position_list = deepcopy(default_positions);
     position_keys();
+    key_move_count = 0;
 }
 
 // This program moves all the keys instantly, which is therefore not suitable for usage in actually moving the keys, only in reseting the keys.
 function user_input() {
-    // pass
+    switch(mode) {
+        case 0:
+            console.log(key_move_count);
+            // trigger the start of the sequence
+            key_move_interval = setInterval(key_movement, 250);
+            break;
+        case 3:
+            break;
+    } 
 }
 
 function collect_key(pressed) {
@@ -47,15 +58,12 @@ function position_keys() {
 
 function key_movement() {
     key_move_count += 1;
-    if (key_move_count === 1) {
-        key_move_interval = setInterval(key_movement, 250);
-        return;
-    }
     if (key_move_count === 27) {
         key_move_count = 0;
         clearInterval(key_move_interval);
         return;
     }
+    console.log(key_move_count);
     if (key_move_count === 6) {
         block_swap();
         return;
