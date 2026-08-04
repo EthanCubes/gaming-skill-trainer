@@ -1,3 +1,12 @@
+/*
+Steps I need to do:
+Change color back to match limbo while keys are moving
+Add selected key glowing green at the start of the program
+Add keys bursting into colors at the end
+Add selection of keys
+Add indication of whether you got the key write.
+*/
+
 // Document selection.
 const key1 = document.getElementById("key1");
 const key2 = document.getElementById("key2");
@@ -18,7 +27,8 @@ const default_positions = [key1, key2, key3, key4, key5, key6, key7, key8];
 let key_move_count = 0;
 let key_move_interval;
 
-let mode = 0; // 0 is idle, 1 is running, 2 is picking, 3 is ended
+let mode = 0; // 0 is idle, 1 is picking which key and displaying to the user, 2 is running, 3 picking the key, 4 is ended
+let mode_start_time = Date.now();
 
 // Event listeners and intervals
 document.addEventListener("click", user_input)
@@ -35,12 +45,19 @@ function gameloop() {
             message.innerHTML = "Click anywhere to start...";
             break;
         case 1:
-            message.innerHTML = "FOCUS";
+            message.innerHTML = "Focus...";
+            if ((Date.now() - mode_start_time) > 500) {
+                mode = 2;
+                key_move_interval = setInterval(key_movement, 250);
+            }
             break;
         case 2:
-            message.innerHTML = "Pick a key";
+            message.innerHTML = "FOCUS";
             break;
         case 3:
+            message.innerHTML = "Pick a key";
+            break;
+        case 4:
             message.innerHTML = "Click anywhere to continue";
             break;
     }
@@ -56,19 +73,17 @@ function reset() {
 function user_input() {
     switch(mode) {
         case 0:
-            console.log(key_move_count);
-            // trigger the start of the sequence
             mode = 1;
-            key_move_interval = setInterval(key_movement, 250);
+            mode_start_time = Date.now();
             break;
-        case 3:
+        case 4:
             reset();
             break;
     } 
 }
 
 function collect_key(pressed) {
-    if (!(mode === 2)) {
+    if (!(mode === 3)) {
         return;
     }
     switch(pressed) {
@@ -92,7 +107,7 @@ function collect_key(pressed) {
             console.log("default");
             return;
     }
-    mode = 3;
+    mode = 4;
 }
 
 function position_keys() {
@@ -108,7 +123,7 @@ function key_movement() {
     if (key_move_count === 27) {
         key_move_count = 0;
         clearInterval(key_move_interval);
-        mode = 2;
+        mode = 3;
         return;
     }
     console.log(key_move_count);
