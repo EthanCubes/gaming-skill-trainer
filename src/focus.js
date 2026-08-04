@@ -23,6 +23,7 @@ const message = document.getElementById("message");
 const position_position_index = [[80, 20], [90, 20], [80, 40], [90, 40], [80, 60], [90, 60], [80, 80], [90, 80]];
 let position_list = [key1, key2, key3, key4, key5, key6, key7, key8];
 const default_positions = [key1, key2, key3, key4, key5, key6, key7, key8];
+let temp_position;
 
 let key_move_count = 0;
 let key_move_interval;
@@ -33,6 +34,10 @@ let mode_start_time = Date.now();
 // Program randomly selects a key that the user will have to track and related stuff.
 let key_picked = false;
 let picked_key = undefined;
+
+// Key move render variables and intervals
+let key_move_render_start;
+let key_move_render_interval;
 
 // Event listeners and intervals
 document.addEventListener("click", user_input)
@@ -189,27 +194,49 @@ function key_movement() {
     index = Math.floor(Math.random()*6);
     switch(index) {
         case 0:
-            position_list = deepcopy(small_rotation());
+            temp_position = deepcopy(small_rotation());
             break;
         case 1:
-            position_list = deepcopy(big_rotation());
+            temp_position = deepcopy(big_rotation());
             break;
         case 2:
-            position_list = deepcopy(shuffle());
+            temp_position = deepcopy(shuffle());
             break;
         case 3: 
-            position_list = deepcopy(top_bottom_swap());
+            temp_position = deepcopy(top_bottom_swap());
             break;
         case 4:
-            position_list = deepcopy(swap());
+            temp_position = deepcopy(swap());
             break;
         case 5:
-            position_list = deepcopy(diagonal_swap());
+            temp_position = deepcopy(diagonal_swap());
             break;
     }
-    position_keys();
+    render_key_movement();
 }
 
+function render_key_movement() {
+    key_move_render_start = Date.now();
+    key_move_render_interval = setInterval(render_key_position, 10);
+}
+
+// Highkey I am not expecting this to work. I haven't tested this yet and code that I haven't tested tends to not work first try. If it works it's going to be an actual miracle.
+function render_key_position() {
+    let delay = Date.now() - key_move_render_start;
+    if (delay > 250) {
+        clearInterval(key_move_render_interval);
+        key_move_render_interval = null;
+    }
+    for (let i = 0; i < 8; i++) {
+        let start_pos = [position_list[i].styles.left, position_list[i].styles.top];
+        let end_pos = temp_position.indexOf(position_list[i]);
+        let position_of_key = get_key_pos(start_pos, end_pos, delay, 250);
+        position_list[i].left = position_of_key[0];
+        position_list[i].top = position_of_key[1];
+    }
+}
+
+// I haven't actually tested to see if this works, nor do I know how to test it to see if it works, so I'm just like yeah.
 function get_key_pos(start_pos, end_pos, delay, duration) {
     let slope;
     let x_pos;
