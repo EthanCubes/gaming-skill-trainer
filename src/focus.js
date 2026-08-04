@@ -35,10 +35,6 @@ let mode_start_time = Date.now();
 let key_picked = false;
 let picked_key = undefined;
 
-// Key move render variables and intervals
-let key_move_render_start;
-let key_move_render_interval;
-
 // Event listeners and intervals
 document.addEventListener("click", user_input)
 document.addEventListener("keydown", function(event) {collect_key(event.key)});
@@ -138,29 +134,45 @@ function user_input() {
 }
 
 function collect_key(pressed) {
+    let user_selected_key;
     if (!(mode === 3)) {
         return;
     }
     switch(pressed) {
         case "1":
+            user_selected_key = key1;
             break;
         case "2":
+            user_selected_key = key2;
             break;
         case "3":
+            user_selected_key = key3;
             break;
         case "4":
+            user_selected_key = key4;
             break;
         case "5":
+            user_selected_key = key5;
             break;
         case "6":
+            user_selected_key = key6;
             break;
         case "7":
+            user_selected_key = key7;
             break;
         case "8":
+            user_selected_key = key8;
             break;
         default:
             console.log("default");
             return;
+    }
+    if (selected_key === user_selected_key) {
+        // key is selected correctly
+    }
+    else {
+        // key is selected incorrectly, get rickrolled
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
     }
     mode = 4;
 }
@@ -214,6 +226,8 @@ function key_movement() {
     }
     position_keys();
 }
+
+function move_keys() {}
 
 // Determining the final position of the keys like during movement, not lik final final.
 function small_rotation() {
