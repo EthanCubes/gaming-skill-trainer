@@ -1,7 +1,7 @@
 /*
 Yo i did not think that a timer would take me this long
 */
-let timer_time = 1200;
+let timer_time = 12;
 
 let timing = 0; // 0 is not timing, 1 is timing, 2 is paused, 3 is ending
 let start_timer;
@@ -27,6 +27,8 @@ function user_input() {
             // start the timer
             document.body.style.backgroundColor = "rgb(50, 50, 50)";
             timer_interval = setInterval(update_timer, 10);
+            message.style.display = "none";
+            message.innerHTML = "R to Restart, Click Anywhere to Resume";
             timing = 1;
             start_timer = Date.now();
             break;
@@ -48,17 +50,37 @@ function user_input() {
             break;
         case 3: 
             document.body.style.backgroundColor = "black";
-            timing = 0;
             ringtone.pause();
+            // Start a 20 second timer
+            start_timer = Date.now();
+            message.style.display = "block";
+            message.innerHTML = "Look at something 20 feet away for 20 seconds.";
+            timer_interval = setInterval(short_timer, 10);
+            timing = 4;
             break;
     }
+}
+
+function short_timer() {
+    // hello
+    if ((Date.now() - start_timer) > 20000) {
+        clearInterval(timer_interval);
+        timer_interval = null;
+        timing = 0;
+        message.innerHTML = "20 seconds up! Click anywhere to restart the timer";
+        return;
+    }
+    let second_display;
+    let ms_elapsed = Date.now() - start_timer;
+    let seconds_left = (20 - ms_elapsed / 1000).toFixed(2);
+    timer.innerHTML = "0:" + seconds_left;
 }
 
 function update_timer() {
     let second_display;
     let minute_display;
     let ms_elapsed = Date.now() - start_timer;
-    let seconds_left = 1200 - ms_elapsed / 1000;
+    let seconds_left = timer_time - ms_elapsed / 1000;
     seconds_left = Math.round(seconds_left);
     // reset the timer when the timer runs out.
     if (seconds_left <= 0) {
@@ -74,6 +96,8 @@ function update_timer() {
 
 function timer_end() {
     console.log("Time's up!");
+    message.style.display = "block";
+    message.innerHTML = "Time's up! Click anywhere to continue";
     ringtone.play();
 }
 
