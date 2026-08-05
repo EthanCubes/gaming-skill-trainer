@@ -1,7 +1,7 @@
 /*
 Yo i did not think that a timer would take me this long
 */
-let timer_time = 12;
+let timer_time = 1200;
 
 let timing = 0; // 0 is not timing, 1 is timing, 2 is paused, 3 is ending
 let start_timer;
@@ -25,7 +25,6 @@ function user_input() {
     switch(timing) {
         case 0:
             // start the timer
-            document.body.style.backgroundColor = "rgb(50, 50, 50)";
             timer_interval = setInterval(update_timer, 10);
             message.style.display = "none";
             message.innerHTML = "R to Restart, Click Anywhere to Resume";
@@ -49,7 +48,6 @@ function user_input() {
             timing = 1;
             break;
         case 3: 
-            document.body.style.backgroundColor = "black";
             ringtone.pause();
             // Start a 20 second timer
             start_timer = Date.now();
