@@ -99,7 +99,6 @@ function gameloop() {
             }
             break;
         case 4:
-            message.innerHTML = "Click anywhere to continue";
             break;
     }
 }
@@ -169,11 +168,12 @@ function collect_key(pressed) {
             return;
     }
     if (selected_key === user_selected_key) {
-        // key is selected correctly
+        message.innerHTML = "Correct! Click anywhere to continue."
     }
     else {
         // key is selected incorrectly, get rickrolled
         window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        message.innerHTML = "Incorrect. Click anywhere to continue."
     }
     mode = 4;
 }
