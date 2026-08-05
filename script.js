@@ -22,6 +22,9 @@ focus_trainer.addEventListener("click", () => redirect("focus.html"));
 timer = document.getElementById("timer_button");
 timer.addEventListener("click", () => redirect("timer.html"));
 
+resources = document.getElementById("resources_button");
+resources.addEventListener("click", () => redirect("resources.html"));
+
 function redirect(page) {
     const LINK_REL = {"eth":"https://ethancubes.github.io/gaming-skill-trainer/", 
         "oca":"http://localhost:5500/", 
