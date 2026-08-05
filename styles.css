@@ -162,3 +162,17 @@ header {
     left: 50%;
     transform: translate(-50%, 0%);
 }
+
+.text {
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.text_list {
+    margin-left: 40%;
+}
+
+a {
+    color: white;
+}
