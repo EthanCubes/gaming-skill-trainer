@@ -1,3 +1,5 @@
+let test_time = 5;
+
 let click_counter = document.getElementById("click_counter");
 let click_timer = document.getElementById("click_timer");
 let message = document.getElementById("message");
@@ -28,8 +30,8 @@ function test_loop() {
         console.log(time)
         cps = (clicks / time).toFixed(1);
         click_counter.innerHTML = clicks + " Clicks | " + cps + " CPS";
-        click_timer.innerHTML = (5 - time).toFixed(2);
-        if (time > 5) {
+        click_timer.innerHTML = (test_time - time).toFixed(2);
+        if (time > test_time) {
             testing = false;
             clearInterval(interval);
             interval = null;

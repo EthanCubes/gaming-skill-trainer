@@ -30,6 +30,8 @@ How accuracy is calculated
 
 Now that I've done everything that this comment says I need to do, I could like delete it, but I'm just going to leave it here because why now? And also because I'm too lazy to delete it.
 */
+let testing_time = 15;
+
 // States
 let testing = false; // Time
 let start_time;
@@ -124,9 +126,9 @@ function gameloop() {
     switch(testing) {
         case true:
             message.style.display = "none";
-            let delay = (20 - ((Date.now() - start_time) / 1000)).toFixed(2);
+            let delay = (testing_time - ((Date.now() - start_time) / 1000)).toFixed(2);
             timer.innerHTML = delay;
-            if (((Date.now() - circle_last_time) > 750) && !(circle_active) && ((Date.now() - start_time) < 17500)) {
+            if (((Date.now() - circle_last_time) > 750) && !(circle_active) && ((Date.now() - start_time) < (testing_time*1000 - 1500))) {
                 // trigger the circle to go darting across the screen. we know that this is triggered from a previous debug statement that i have now removed
            	    circle_start_time = Date.now(); 
                 circle_active = true;
@@ -134,7 +136,7 @@ function gameloop() {
                 circle_click_attempt = false;
                 circle_calculation_interval = setInterval(calculate_circle, 10);
             }
-            if ((Date.now() - start_time) > 20000) {
+            if ((Date.now() - start_time) > testing_time*1000) {
                 // Code to terminate the testing thing.
                 document.body.style.backgroundColor = "black";
                 testing = false;
@@ -150,7 +152,7 @@ function gameloop() {
 }
 
 function calculate_circle() {
-    let time_difference = (Date.now() - circle_start_time)/20; // Maximum of 2000
+    let time_difference = (Date.now() - circle_start_time)/testing_time; // Maximum of 2000
     // Time lasts roughly 2 seconds, 1 second too early and 1 second too late. This is actually 2000 milliseconds, which is exactly 20 times the 100% width of the screen.
     circle.style.left = (100 - time_difference) + "%"; // Moves the circle
     if ((time_difference > 99)) {

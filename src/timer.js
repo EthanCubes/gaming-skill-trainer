@@ -1,6 +1,7 @@
 /*
 Yo i did not think that a timer would take me this long
 */
+let timer_time = 1200;
 
 let timing = 0; // 0 is not timing, 1 is timing, 2 is paused, 3 is ending
 let start_timer;
