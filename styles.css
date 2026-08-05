@@ -177,3 +177,70 @@ header {
 a {
     color: white;
 }
+
+.selection_button {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: white;
+}
+
+#button1 {
+    position: absolute;
+    top: 70%;
+    left: 6%;
+    background-color: red;
+}
+
+#button2 {
+    position: absolute;
+    top: 70%;
+    left: 12%;
+    background-color: orange;
+}
+
+#button3 {
+    position: absolute;
+    top: 70%;
+    left: 18%;
+    background-color: yellow;
+}
+
+#button4 {
+    position: absolute;
+    top: 70%;
+    left: 24%;
+    background-color: green;
+}
+
+#button5 {
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    background-color: cyan;
+}
+
+#button6 {
+    position: absolute;
+    top: 70%;
+    left: 36%;
+    background-color: blue;
+}
+
+#button7 {
+    position: absolute;
+    top: 70%;
+    left: 42%;
+    background-color: purple;
+}
+
+#button8 {
+    position: absolute;
+    top: 70%;
+    left: 48%;
+    background-color: pink;
+}
+
+#select_buttons {
+    display: none;
+}

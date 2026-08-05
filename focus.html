@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1 id="message">Click anywhere to start...</h1>
+        <h1 id="message">Click anywhere to start.</h1>
         <div class="key" id="key1"></div>
         <div class="key" id="key2"></div>
         <div class="key" id="key3"></div>
@@ -14,6 +14,17 @@
         <div class="key" id="key6"></div>
         <div class="key" id="key7"></div>
         <div class="key" id="key8"></div>
+        <section id="select_buttons">
+            <div id="button1" class="selection_button" onclick="collect_key('1')">1</div>
+            <div id="button2" class="selection_button" onclick="collect_key('2')">2</div>
+            <div id="button3" class="selection_button" onclick="collect_key('3')">3</div>
+            <div id="button4" class="selection_button" onclick="collect_key('4')">4</div>
+            <div id="button5" class="selection_button" onclick="collect_key('5')">5</div>
+            <div id="button6" class="selection_button" onclick="collect_key('6')">6</div>
+            <div id="button7" class="selection_button" onclick="collect_key('7')">7</div>
+            <div id="button8" class="selection_button" onclick="collect_key('8')">8</div>
+        </section>
+        <h3 id="tip">Note: It is recommended to use number keys to select key. When clicking the buttons to select the key, it will procede immediately to the starting screen after you select the key, withot displaying if you got it correct or not. So in that case, you'll know you got it correct when nothing happens.</h3>
         <script src="src/focus.js"></script>
         <a href="index.html" id="home"><h3>Go Home</h3></a>
     </body>

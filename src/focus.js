@@ -18,6 +18,7 @@ const key7 = document.getElementById("key7");
 const key8 = document.getElementById("key8");
 
 const message = document.getElementById("message");
+const buttons = document.getElementById("select_buttons");
 
 // Position list
 const position_position_index = [[80, 20], [90, 20], [80, 40], [90, 40], [80, 60], [90, 60], [80, 80], [90, 80]];
@@ -39,6 +40,14 @@ let selected_key = undefined;
 document.addEventListener("click", user_input)
 document.addEventListener("keydown", function(event) {collect_key(event.key)});
 setInterval(gameloop, 10);
+
+if (localStorage.getItem("has_visited_before")) {
+    console.log("welcome back");
+}
+else {
+    alert("Warning: This test is extremely difficult");
+    localStorage.setItem("has_visited_before", "true");
+}
 
 reset();
 
@@ -94,6 +103,7 @@ function gameloop() {
             break;
         case 3:
             message.innerHTML = "Pick a key";
+            buttons.style.display = "block";
             if ((Date.now() - mode_start_time) > 250) {
                 colorize();
             }
@@ -111,6 +121,7 @@ function colorize() {
 }
 
 function reset() {
+    buttons.style.display = "none";
     position_list = deepcopy(default_positions);
     position_keys();
     key_move_count = 0;
