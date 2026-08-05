@@ -25,6 +25,9 @@ timer.addEventListener("click", () => redirect("timer.html"));
 resources = document.getElementById("resources_button");
 resources.addEventListener("click", () => redirect("resources.html"));
 
+typing = document.getElementById("typing_button");
+typing.addEventListener("click", () => redirect("typing.html"));
+
 function redirect(page) {
     const LINK_REL = {"eth":"https://ethancubes.github.io/gaming-skill-trainer/", 
         "oca":"http://localhost:5500/", 
