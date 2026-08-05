@@ -30,9 +30,9 @@ function gameloop() {
         let time = Date.now() - start_time;
         let timer = time / 1000;
         let cps = (clicks / timer).toFixed(2);
-        click_timer.innerHTML = (10 - timer).toFixed(2);
+        click_timer.innerHTML = (5 - timer).toFixed(2);
         click_counter.innerHTML = clicks + " Clicks | " + cps + " CPS";
-        if (timer > 10) {
+        if (timer > 5) {
             end_time = Date.now();
             message.style.display = "block";
             testing = false;
