@@ -8,6 +8,7 @@ let word_list;
 let mode = 0; // 0 is idle, 1 is typing, 2 is ended
 
 let start_time;
+let time_elapsed;
 
 let characters_typed; 
 let string = 0;
@@ -19,6 +20,7 @@ let after;
 
 // Selection of HTML elements
 const text = document.getElementById("text");
+const message = document.getElementById("message");
 
 // Intervals and Event Listeners.
 setInterval(gameloop, 10);
@@ -66,6 +68,7 @@ function reset() {
     time_passed = 0;
     characters_typed = 0;
     string = 0;
+    message.style.display = "none";
     // If the data has not yet been fetched, the processing script will run when the data is fetched.
     if (!data_fetched) {
         console.log("Data not yet fetched!");
@@ -94,6 +97,10 @@ function gameloop() {
     text.innerHTML = "<span style='color: grey'>" + before + "</span><span style='color: blue;'>|</span><span style='color: white'>" + after + "</span>";
 
     next_character = string[characters_typed];
+
+    if (mode === 1) {
+        time_elapsed = (Date.now() - start_time) / 1000;
+    }
 }
 
 function user_input(key) {
@@ -115,5 +122,10 @@ function user_input(key) {
     if (characters_typed >= string.length) {
         mode = 2;
         // calculate the wpm
+        // words / seconds * 60
+        let wpm = (45 / time_elapsed * 60).toFixed(2);
+        message.innerHTML = "You have typed all the words in " + time_elapsed + " seconds, at " + wpm + " words per minute. Press enter to continue.";
+        message.style.top = "25%";
+        message.style.display = "block";
     }
 }
