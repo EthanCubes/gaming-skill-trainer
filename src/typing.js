@@ -9,6 +9,14 @@ let mode = 0; // 0 is idle, 1 is typing, 2 is ended
 
 let time_passed;
 let characters_typed; 
+let string = 0;
+
+// Used for displaying text before and after the cursor according to whether or not they have been typed.
+let before;
+let after;
+
+// Selection of HTML elements
+const text = document.getElementById("text");
 
 // Intervals and Event Listeners.
 setInterval(gameloop, 10);
@@ -58,6 +66,7 @@ function reset() {
         return;
     }
     process_data();
+    string = 0;
 }
 
 // Renders already typed characters and characters needed to be typed on both sides.
@@ -66,13 +75,18 @@ function gameloop() {
         fetch_data();
         return;
     }
-    // Render the characters according to how many have already been typed.
-    switch(mode) {
-        case 0:
-            break;
-        case 1:
-            break;
-        case 2: 
-            break;
+    if (string === 0) {
+        return;
     }
+    // Render the characters according to how many have already been typed.
+    before = "";
+    after = "";
+    // code here calculates the before and the after according to the characters that have alreay been typed and the string
+    for (let i = 0; i < characters_typed; i++) {
+        before += string[i];
+    }
+    for (let i = characters_typed; i < string.length; i++) {
+        after += string[i];
+    }
+    text.innerHTML = "<span style='color: grey'>" + before + "</span><span style='color: blue;'>|</span><span style='color: white'>" + after + "</span>";
 }
