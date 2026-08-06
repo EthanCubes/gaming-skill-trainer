@@ -10,6 +10,7 @@ let mode = 0; // 0 is idle, 1 is typing, 2 is ended
 let time_passed;
 let characters_typed; 
 let string = 0;
+let next_character;
 
 // Used for displaying text before and after the cursor according to whether or not they have been typed.
 let before;
@@ -20,6 +21,7 @@ const text = document.getElementById("text");
 
 // Intervals and Event Listeners.
 setInterval(gameloop, 10);
+document.addEventListener("keydown", function(event) {user_input(event);});
 
 // Actual executed code
 reset();
@@ -82,6 +84,7 @@ function gameloop() {
     before = "";
     after = "";
     // code here calculates the before and the after according to the characters that have alreay been typed and the string
+    // I definitely did not intend for it to behave like the default monkeytype display, but I mean there's a reason that monkeytype used what Monkeytype uses.
     for (let i = 0; i < characters_typed; i++) {
         before += string[i];
     }
@@ -89,4 +92,13 @@ function gameloop() {
         after += string[i];
     }
     text.innerHTML = "<span style='color: grey'>" + before + "</span><span style='color: blue;'>|</span><span style='color: white'>" + after + "</span>";
+
+    next_character = string[characters_typed];
+}
+
+function user_input(key) {
+    console.log(key);
+    if (key.key === next_character) {
+        characters_typed += 1;
+    }
 }
