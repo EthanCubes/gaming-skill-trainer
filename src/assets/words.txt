@@ -37,6 +37,7 @@ lost
 dirt
 edge
 wave
+life
 nine
 four
 help
@@ -55,6 +56,9 @@ crush
 clown
 spoke
 world
+level
+clear
+never
 blade
 place
 flame
@@ -64,7 +68,10 @@ tidal
 stone
 sharp
 sword
+bliss
 final
+yoink
+steal
 piano
 space
 irony
@@ -84,6 +91,7 @@ wander
 parrot
 person
 cursed
+infuse
 mascot
 justice
 brother
