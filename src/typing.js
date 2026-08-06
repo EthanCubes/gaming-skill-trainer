@@ -26,11 +26,18 @@ function fetch_data () {
 }
 
 function process_data() {
+    let modifier
     word_list = words.split("\n");
-    string = [];
+    string = "";
     // 45 is the maximum reasonable typing speed in 15 seconds.
     for (let i = 0; i < 45; i++) {
-        string.push(word_list[Math.floor(Math.random()*word_list.length)]);
+        if (i < 44) {
+            modifier = " ";
+        }
+        else {
+            modifier = "";
+        }
+        string += word_list[Math.floor(Math.random()*word_list.length)] + modifier;
     }
     console.log(string);
 }
