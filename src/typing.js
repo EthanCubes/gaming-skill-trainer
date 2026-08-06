@@ -21,6 +21,7 @@ let after;
 // Selection of HTML elements
 const text = document.getElementById("text");
 const message = document.getElementById("message");
+const timer = document.getElementById("typing_timer");
 
 // Intervals and Event Listeners.
 setInterval(gameloop, 10);
@@ -94,12 +95,13 @@ function gameloop() {
     for (let i = characters_typed; i < string.length; i++) {
         after += string[i];
     }
-    text.innerHTML = "<span style='color: grey'>" + before + "</span><span style='color: blue;'>|</span><span style='color: white'>" + after + "</span>";
+    text.innerHTML = "<span style='color: grey'>" + before + "</span><span style='color: red;'>|</span><span style='color: white'>" + after + "</span>";
 
     next_character = string[characters_typed];
 
     if (mode === 1) {
-        time_elapsed = (Date.now() - start_time) / 1000;
+        time_elapsed = ((Date.now() - start_time) / 1000).toFixed(2);
+        timer.innerHTML = time_elapsed;
     }
 }
 

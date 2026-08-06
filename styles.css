@@ -64,6 +64,8 @@ header {
     top: 25%;
     left: 50%;
     transform: translate(-50%, -25%);
+
+    transition: left 100ms, top 100ms;
     
     background-color: white;
     display: block;
@@ -251,4 +253,11 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+#typing_timer {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
