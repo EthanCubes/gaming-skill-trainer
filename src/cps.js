@@ -11,6 +11,8 @@ let stop_time = Date.now();
 let clicks = 0;
 let cps;
 
+let isMouseDown;
+
 document.addEventListener("click", function() {
     console.log("hi");
     if ((!(testing)) && ((Date.now() - stop_time) >= 1000)) {
@@ -23,7 +25,16 @@ document.addEventListener("click", function() {
     clicks += 1;
 })
 
+document.addEventListener("mousedown", () => {isMouseDown = true;});
+document.addEventListener("mouseup", () => {isMouseDown = false;});
+
 function test_loop() {
+    if (isMouseDown) {
+        document.body.style.backgroundColor = "rgb(25, 25, 25";
+    }
+    else {
+        document.body.style.backgroundColor = "black";
+    }
     if (testing === true) {
         message.style.display = "none";
         let time = (Date.now() - start_time) / 1000;
@@ -35,6 +46,7 @@ function test_loop() {
             testing = false;
             clearInterval(interval);
             interval = null;
+            document.body.style.backgroundColor = "black";
             alert("You have gotten " + cps + " cps!");
             stop_time = Date.now()
             message.style.display = "block";
