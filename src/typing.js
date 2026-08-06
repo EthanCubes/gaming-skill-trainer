@@ -7,7 +7,8 @@ let word_list;
 
 let mode = 0; // 0 is idle, 1 is typing, 2 is ended
 
-let time_passed;
+let start_time;
+
 let characters_typed; 
 let string = 0;
 let next_character;
@@ -103,11 +104,16 @@ function user_input(key) {
         reset();
         return;
     } 
-    if (key.key === next_character) {
+    // This uh is the trigger, only if the key isn't enter.
+    if ((mode === 0) && !(key.key === "Enter")) {
         mode = 1;
+        start_time = Date.now();
+    }
+    if (key.key === next_character) {
         characters_typed += 1;
     }
     if (characters_typed >= string.length) {
         mode = 2;
+        // calculate the wpm
     }
 }
