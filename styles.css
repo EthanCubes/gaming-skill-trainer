@@ -244,3 +244,11 @@ a {
 #select_buttons {
     display: none;
 }
+
+#text {
+    /* Not to be confused with the text class */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
