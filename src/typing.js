@@ -61,23 +61,22 @@ function process_data() {
 }
 
 function reset() {
+    mode = 0;
     time_passed = 0;
     characters_typed = 0;
+    string = 0;
     // If the data has not yet been fetched, the processing script will run when the data is fetched.
     if (!data_fetched) {
+        console.log("Data not yet fetched!");
         return;
     }
     process_data();
-    string = 0;
 }
 
 // Renders already typed characters and characters needed to be typed on both sides.
 function gameloop() {
     if (!data_fetched && !data_fetching) {
         fetch_data();
-        return;
-    }
-    if (string === 0) {
         return;
     }
     // Render the characters according to how many have already been typed.
@@ -97,8 +96,18 @@ function gameloop() {
 }
 
 function user_input(key) {
-    console.log(key);
+    if (string === 0) {
+        return;
+    }
+    if (mode === 2 && key.key === "Enter") {
+        reset();
+        return;
+    } 
     if (key.key === next_character) {
+        mode = 1;
         characters_typed += 1;
+    }
+    if (characters_typed >= string.length) {
+        mode = 2;
     }
 }
