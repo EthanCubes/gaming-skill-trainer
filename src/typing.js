@@ -5,6 +5,9 @@ let words;
 
 let mode = 0; // 0 is idle, 1 is typing, 2 is ended
 
+let time_passed;
+let characters_typed; 
+
 // Intervals and Event Listeners.
 setInterval(gameloop, 10);
 
@@ -42,11 +45,22 @@ function process_data() {
     console.log(string);
 }
 
-// Renders already typed characters and characters needed to be typed on both sides.
-function gameloop() {
+function reset() {
     if (!data_fetched) {
         return;
     }
+    process_data();
+    time_passed = 0;
+    characters_typed = 0;
+}
+
+// Renders already typed characters and characters needed to be typed on both sides.
+function gameloop() {
+    if (!data_fetched) {
+        fetch_data();
+        return;
+    }
+    // Render the characters according to how many have already been typed.
     switch(mode) {
         case 0:
             break;
