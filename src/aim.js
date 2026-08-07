@@ -1,32 +1,37 @@
 let testing = false;
 let mouse_over = false;
 
-let hit_circle = document.getElementById("hit_circle");
-let aim_timer = document.getElementById("timer");
-let message = document.getElementById("message");
+const hit_circle = document.getElementById("hit_circle");
+const aim_timer = document.getElementById("timer");
+const accuracy_counter = document.getElementById("counter");
+const message = document.getElementById("message");
 
 let x = 50;
 let y = 50;
 
+let correct_clicks = 0;
 let clicks = 0;
+let accuracy;
 let start_time = 0;
 let end_time = Date.now();
 
 let interval;
 
+document.addEventListener("click", function() {if (testing) {clicks += 1; accuracy = ((correct_clicks / (clicks - 1)) * 100).toFixed(2); if (isNaN(accuracy)) {accuracy = 100;}; accuracy_counter.innerHTML = accuracy + "% Accuracy"; console.log("clicked");}});
 hit_circle.addEventListener("click", () => circle_clicked());
 function circle_clicked() {
-    clicks += 1;
+    correct_clicks += 1;
     if ((!(testing)) && (end_time > 500)) {
         testing = true;
         start_time = Date.now();
         interval = setInterval(update_time, 10);
+        correct_clicks = 0;
         clicks = 0;
         message.style.display = "none";
     }
-    if (clicks >= 16) {
+    if (correct_clicks >= 16) {
         testing = false;
-        alert("You hit all the circles in " + time + " seconds.");
+        alert("You hit all the circles in " + time + " seconds at " + accuracy + "% accuracy.");
         end_time = Date.now();
         message.style.display = "block";
         
