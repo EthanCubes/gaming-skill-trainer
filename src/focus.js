@@ -189,6 +189,7 @@ function collect_key(pressed) {
 }
 
 function position_keys() {
+    // This just works somehow. Like I spent like 3 hours and several years of linear algebra just to do something that was simple enough to be done in 2 minutes and 3 lines of code
     for (let i = 0; i < 8; i++) {
         const key = position_list[i];
         key.style.left = position_position_index[i][0] + "%";

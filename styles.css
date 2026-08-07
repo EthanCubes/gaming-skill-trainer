@@ -1,3 +1,9 @@
+/* To do: 
+ * Clean up this dumpster fire code
+ * Make unnecessary elements disappear
+ * uh idk rule of 3
+*/ 
+
 body {
     background-color: black;
     font-family: monospace;
@@ -15,6 +21,7 @@ header {
     overflow-x: wrap;
 }
 
+/* real buttons have several issues including lack of easy customization, and also when you press them they're just selected forever */
 .fake_button {
     display: block;
     width: 15%;
@@ -34,6 +41,7 @@ header {
     transition: background-color 250ms, width 250ms, height 250ms;
 }
 
+/* I probably could've and should've done this with regular buttons */
 .fake_button:hover {
     background-color: grey;
     width: 16%;
@@ -48,6 +56,7 @@ header {
     user-select: none;
 }
 
+/* For some reason I wrote like 30 timer objects that probably could be replaced with just one */
 #click_counter {
     user-select: none;
 }
@@ -79,6 +88,7 @@ header {
     background-color: grey;
 }
 
+/* Yes, another one of those timers */
 #aim_timer {
     position: absolute;
     top: 5%;
@@ -97,6 +107,8 @@ header {
     user-select: none;
 }
 
+/* I should probably make this into an actual key but I have no idea how. */
+/* also why is this so far away from the rest of the focus mode code */
 .key {
     display: block;
     width: 25px;
@@ -150,7 +162,8 @@ header {
     margin: 0px;
 }
 
-/* This CSS file is a fricking dumpster fire wth */
+/* This CSS file is a fricking dumpster fire wth 
+* everything is everywhere and it's really hard to find everything */ 
 
 #timer {
     position: absolute;
@@ -181,6 +194,7 @@ a {
     color: white;
 }
 
+/* Focus mode section */
 .selection_button {
     width: 5rem;
     height: 5rem;
