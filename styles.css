@@ -61,7 +61,7 @@ header {
     user-select: none;
 }
 
-#click_timer {
+#timer {
     position: absolute;
     top: 5%;
     left: 50%;
@@ -86,15 +86,6 @@ header {
 
 #hit_circle:hover {
     background-color: grey;
-}
-
-/* Yes, another one of those timers */
-#aim_timer {
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    user-select: none;
 }
 
 #home {
@@ -171,13 +162,6 @@ header {
     left: 50%;
     transform: translate(-50%, -100%); /* For some reason the top is weird and I don't know like why this works but it does */
     font-size: 5rem;
-}
-
-#timing_timer {
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, 0%);
 }
 
 .text {
@@ -268,11 +252,4 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-#typing_timer {
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, 0%);
 }

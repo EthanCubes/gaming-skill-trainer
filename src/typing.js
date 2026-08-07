@@ -21,7 +21,7 @@ let after;
 // Selection of HTML elements
 const text = document.getElementById("text");
 const message = document.getElementById("message");
-const timer = document.getElementById("typing_timer");
+const timer = document.getElementById("timer");
 
 // Intervals and Event Listeners.
 setInterval(gameloop, 10);

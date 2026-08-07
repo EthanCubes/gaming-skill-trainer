@@ -2,7 +2,7 @@ let testing = false;
 let mouse_over = false;
 
 let hit_circle = document.getElementById("hit_circle");
-let aim_timer = document.getElementById("aim_timer");
+let aim_timer = document.getElementById("timer");
 let message = document.getElementById("message");
 
 let x = 50;

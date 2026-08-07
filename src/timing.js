@@ -57,7 +57,7 @@ const line = document.getElementById("hit_line");
 const screen_dimension_searcher = document.getElementById("screen_dimension_searcher");
 const score_display = document.getElementById("score_display");
 const pulse = document.getElementById("popup");
-const timer = document.getElementById("timing_timer");
+const timer = document.getElementById("timer");
 
 let screen_x = get_screen_dimensions(0, -50)[0];
 let screen_y = get_screen_dimensions(0, -50)[1];
