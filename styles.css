@@ -21,7 +21,7 @@ header {
     height: 5rem;
     border-radius: 10px;
 
-    background-color: white;
+    background-color: grey;
     color: black;
     text-align: center;
 
@@ -35,7 +35,7 @@ header {
 }
 
 .fake_button:hover {
-    background-color: grey;
+    background-color: white;
     width: 16%;
     height: 6rem;
 }
