@@ -23,6 +23,15 @@ If you want to use npm (node package manager) and live server:
 ## How it works
 A lot of JavaScript and CSS. Only vanilla JavaScript was used, no frameworks or anything. Majority of the stuff was done either by event listeners or set interval (apparently there's these things called animation frames that I could use but idk how to use them and am too lazy to change anything).
 
+## Known Issues
+### Large Problems
+### Minor inconvieniences
+- [ ] CSS file is unoranized and contains many redundant lines of code
+- [ ] Black specs appear in main page. May be result of a rendering error
+- [ ] UI Looks bad
+- [ ] Only a few games are included, maybe include some more skills. Idk, I have over 50 hour on this project already, don't want to add another 10 doing something that most people will never use
+### Nice things to add
+
 ## Credits
 - This [Stack Overflow question](https://stackoverflow.com/questions/8454510/open-url-in-same-window-and-in-same-tab) helped with opening the link in the same tab.
 - This [Stack Overflow question](https://stackoverflow.com/questions/9419263/how-to-play-audio) helped with playing audio for the timer ringtone.
