@@ -98,7 +98,6 @@ function gameloop() {
             break;
         case 2:
             message.innerHTML = "FOCUS";
-            console.log(selected_key);
             selected_key.style.backgroundColor = "rgb(200, 125, 50)";
             break;
         case 3:

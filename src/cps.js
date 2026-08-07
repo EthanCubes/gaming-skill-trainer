@@ -14,7 +14,6 @@ let cps;
 let isMouseDown;
 
 document.addEventListener("click", function() {
-    console.log("hi");
     if ((!(testing)) && ((Date.now() - stop_time) >= 1000)) {
         clicks = 0;
         cps = 0;
@@ -38,7 +37,6 @@ function test_loop() {
     if (testing === true) {
         message.style.display = "none";
         let time = (Date.now() - start_time) / 1000;
-        console.log(time)
         cps = (clicks / time).toFixed(1);
         click_counter.innerHTML = clicks + " Clicks | " + cps + " CPS";
         click_timer.innerHTML = (test_time - time).toFixed(2);

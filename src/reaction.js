@@ -13,7 +13,6 @@ interval = setInterval(gameloop, 10);
 document.addEventListener("click", () => clicked())
 
 function clicked() {
-    console.log("Clicked!")
     switch(mode) {
         case 0:
             start_time = Date.now();
@@ -49,8 +48,6 @@ function gameloop() {
             document.body.style.backgroundColor = "red";
             message.innerHTML = "Prepare...";
             if ((Date.now() - start_time) > 750) {
-                console.log(wait_time);
-                console.log(Date.now() - start_time);
                 if ((Date.now() - start_time) > wait_time) {
                     start_time = Date.now() - 10; // delay rebalancing
                     mode = 2;

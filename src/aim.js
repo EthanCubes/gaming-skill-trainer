@@ -15,7 +15,6 @@ let end_time = Date.now();
 let interval;
 
 hit_circle.addEventListener("click", () => circle_clicked());
-    console.log("hi")
 function circle_clicked() {
     clicks += 1;
     if ((!(testing)) && (end_time > 500)) {
