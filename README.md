@@ -26,7 +26,7 @@ A lot of JavaScript and CSS. Only vanilla JavaScript was used, no frameworks or 
 ## Known Issues
 ### Large Problems
 ### Minor inconvieniences
-- [ ] CSS file is unoranized and contains many redundant lines of code
+- [x] CSS file is unoranized and contains many redundant lines of code
 - [ ] Black specs appear in main page. May be result of a rendering error
 - [ ] UI Looks bad
 - [ ] Only a few games are included, maybe include some more skills. Idk, I have over 50 hour on this project already, don't want to add another 10 doing something that most people will never use

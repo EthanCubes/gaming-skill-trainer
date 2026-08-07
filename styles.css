@@ -15,6 +15,7 @@ header {
     text-align: center;
 }
 
+a {
 .unselectable {
     user-select: none;
 }
@@ -161,17 +162,11 @@ header {
 }
 
 .text {
+    display: block;
+    max-width: 65ch;
+    margin: 0 auto;
     text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-.text_list {
-    margin-left: 40%;
-}
-
-a {
-    color: white;
+    font-size: large;
 }
 
 /* Focus mode section */
@@ -243,7 +238,7 @@ a {
 }
 
 #text {
-    /* Not to be confused with the text class */
+    /* Not to be confused with the text class (I definitely got confused)*/
     position: absolute;
     top: 50%;
     left: 50%;
