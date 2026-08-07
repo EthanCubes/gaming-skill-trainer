@@ -1,7 +1,7 @@
 let test_time = 5;
 
-const click_counter = document.getElementById("click_counter");
-const click_timer = document.getElementById("click_timer");
+const click_counter = document.getElementById("counter");
+const click_timer = document.getElementById("timer");
 const message = document.getElementById("message");
 
 let testing = false;
