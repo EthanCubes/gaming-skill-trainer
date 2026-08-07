@@ -16,6 +16,9 @@ header {
 }
 
 a {
+    color: white;
+}
+
 .unselectable {
     user-select: none;
 }
