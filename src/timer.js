@@ -18,7 +18,7 @@ document.addEventListener("keyup", function(event) {
     if (event.key === "r") {restart_timer();}
 });
 
-timer = document.getElementById("timer");
+timer = document.getElementById("eye_timer");
 message = document.getElementById("message");
 
 function user_input() {
