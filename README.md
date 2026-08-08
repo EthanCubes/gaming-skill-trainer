@@ -48,10 +48,10 @@ A lot of JavaScript and CSS. Only vanilla JavaScript was used, no frameworks or 
 - If you want to learn how to actually alt spam effectively, go to the resources page as I have a video linked there that will explain it much better than I can
 - This test is simular to the aforementioned CPS test, but you can click with keyboard keys; click as fast as possible
 
-Reaction Time Test - Click to start the test
+### Reaction Time Test - Click to start the test
 - Don't click when the background is red. Click ASAP when then background is green
 
-Timing and Precision Trainer
+### Timing and Precision Trainer
 - Click anywhere or any key to start the test
 - When the circle goes across the screen, you have to click the mouse or press a key just as the circle passes over the center of the screen
 - Depending on how close the circle is to the center when you click, you will get 50, 100, or 150 points
