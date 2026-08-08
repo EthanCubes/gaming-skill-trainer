@@ -5,6 +5,13 @@ A web app with a variety of pages to help train gamers on various skills needed 
 
 [Click Here to Try the Program](https://ethancubes.github.io/gaming-skill-trainer/)
 
+## Table of Contents
+1. [How to run locally](##how-to-run-locally)
+2. [Features](##features)
+3. [How it works](##how-it-works)
+4. [Help](##help)
+5. [Credits](##credits)
+
 ## How to run locally
 I don't know why you would need to run this locally but whatever I guess. 
 1. Clone or download the Git repo from GitHub.
@@ -64,7 +71,7 @@ A lot of JavaScript and CSS. Only vanilla JavaScript was used, no frameworks or 
 According to what color the key that glowed green at the start of the test currently is, select one of the buttons. You can do this by clicking on it, or clicking the corresponding number key
 If you get it wrong, you'll know
 
-Eye Break Timer
+### Eye Break Timer
 - This is quite possibly the most simple program on this entire web page
 - Click to start the timer. The timer will go on for 20 minutes before going off. When that happens, take a break from the screen for 20 seconds and stare at something at least 20 feet away
 - When you click again, the timer will start again, and the cycle forever repeats (you can end this by pressing the "go home" button
