@@ -1,7 +1,7 @@
 # Gaming Skill Trainer
 A web app with a variety of pages to help train gamers on various skills needed for effective gaming, including aim, reaction time, click speed, and even timing.
 
-![Black Screen with several squares on it](screenshot/Screenshot_20260729_114653.png)
+![Black Screen with several squares on it](screenshot/Screenshot_20260806_184422.png)
 
 [Click Here to Try the Program](https://ethancubes.github.io/gaming-skill-trainer/)
 
@@ -34,4 +34,5 @@ A lot of JavaScript and CSS. Only vanilla JavaScript was used, no frameworks or 
 - I used the [Zeal Documentation Browser](https://zealdocs.org/) when I was offline and needed to search something up. To be honest, it's not the easiest experience using Zeal and I definitely prefer online documentation more, but it was a great help when offine.
 - This program was written in [Visual Studio Code](https://code.visualstudio.com/) and [Vim](https://www.vim.org/). Even inside of VSCode, I was using the Vim extension. This is also my first time coding a project with Vim, and somehow I didn't struggle that much and now I'm addicted and definitely part of the Cult of Vi(M).
 - The favicon was made in about 30 seconds in [Krita](https://krita.org/) and converted into an .ico file with [FFmpeg](https://ffmpeg.org/). Maybe just like renaming the file would've worked and maybe FFmpeg did nothing, but whatever. I guess you can call it low effort, but it's not like I can make it much better even if I tried.
+The Help button was also made in Krita, also in about 30 seconds, but this time I think it actually somewhat looks good. Actually, on second thought it looks mediocre at best but I mean it's just a icon that didn't ever need to exist anyway.
 
