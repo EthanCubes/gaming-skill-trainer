@@ -20,8 +20,61 @@ If you want to use npm (node package manager) and live server:
 3. Run `live-server --port=5500` to start the server.
 4. Navigate to `http://localhost:5500/`, where the pages will be hosted locally.
 
+## Features
+- A cps test, aim trainer, typing speed test, and many other trainers for skills that are nice to have for gaming. 
+- A focus trainer inspired by the Geometry Dash level LIMBO that involves the user tracking moving "keys" on their screen.
+- A timer designed to enforce the 20-20-20 rule that helps with eye health (functional eyes are generally pretty important for gaming).
+- A resources page with tons of links to helpful tutorials to games like Minecraft and Geometry Dash (that's it, there's like no tutorials for other games because I don't play other games a lot)
+
 ## How it works
 A lot of JavaScript and CSS. Only vanilla JavaScript was used, no frameworks or anything. Majority of the stuff was done either by event listeners or set interval (apparently there's these things called animation frames that I could use but idk how to use them and am too lazy to change anything).
+
+## Help
+### CPS Test
+- CPS stands for clicks per second.
+- In this test, you are trying to click as fast as possible
+- To start the test, simply click your mouse or touch the screen
+- After 5 seconds, the test will end and a popup will tell you how much CPS you got
+- If you want to see how much CPS you are currently getting, look at the top left. It'll display the CPS and the number of clicks you have clicked in the current test
+
+### Aim Trainer
+- Upon clicking on the circle, the test will start
+- Each time you click on the circle, it will glide to a new position, where you will have to then navigate to and click on the circle again
+- The test will end once you click 16 circles, give or take like one
+- A popup will tell you how long it took to click all the circles. There's also a timer that shows up on the screen
+
+### Alt Spam Test
+- Alt spam is when you click two separate keys at once with two separate fingers to double your clicks per second
+- If you want to learn how to actually alt spam effectively, go to the resources page as I have a video linked there that will explain it much better than I can
+- This test is simular to the aforementioned CPS test, but you can click with keyboard keys; click as fast as possible
+
+Reaction Time Test - Click to start the test
+- Don't click when the background is red. Click ASAP when then background is green
+
+Timing and Precision Trainer
+- Click anywhere or any key to start the test
+- When the circle goes across the screen, you have to click the mouse or press a key just as the circle passes over the center of the screen
+- Depending on how close the circle is to the center when you click, you will get 50, 100, or 150 points
+- At the end of the test, a popup will pop up saying what accuracy you got. This is calculated by dividing the amount of points you got out of the maximum possible amount of points that you could have gotten
+
+### Focus Trainer
+- Click anywhere to start the test. This test is extremely difficult and WILL take many attempts to do
+- A key will glow green at the start of the test. Follow the key as it, and its accomplices move, shuffle, and flip all across the place
+- At the end of the test, the keys will spring into color, and 8 buttons labeled 1-8 will appear at the bottom of the screen.
+According to what color the key that glowed green at the start of the test currently is, select one of the buttons. You can do this by clicking on it, or clicking the corresponding number key
+If you get it wrong, you'll know
+
+Eye Break Timer
+- This is quite possibly the most simple program on this entire web page
+- Click to start the timer. The timer will go on for 20 minutes before going off. When that happens, take a break from the screen for 20 seconds and stare at something at least 20 feet away
+- When you click again, the timer will start again, and the cycle forever repeats (you can end this by pressing the "go home" button
+
+### Typing Speed Test
+- There will be a large block of text on the screen. Once you start typing, the timer starts to time you
+- When you finish typing, the program will calculate your typing speed and generate a new block of words for you to type
+- And thus the cycle shall continue forevermore (unless you click the "go home" button)
+
+
 
 ## Credits
 - This [Stack Overflow question](https://stackoverflow.com/questions/8454510/open-url-in-same-window-and-in-same-tab) helped with opening the link in the same tab.
