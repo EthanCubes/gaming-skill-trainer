@@ -10,6 +10,14 @@ A web app with a variety of trainers, tests, and resources to help train gamers 
 2. [Features](#features)
 3. [How it works](#how-it-works)
 4. [Help](#help)
+    - [CPS Test](#cps-test)
+    - [Aim Trainer](#aim-trainer)
+    - [Alt Spam Test](#alt-spam-test)
+    - [Reaction Time Test](#reaction-time-test)
+    - [Timing and Precision Trainer](#timing-and-precision-trainer)
+    - [Focus Trainer](#focus-trainer)
+    - [Eye Break Timer](#eye-break-timer)
+    - [Typing Speed Test](#typing-speed-test)
 5. [Credits](#credits)
 
 ## How to run locally
@@ -55,7 +63,8 @@ A lot of JavaScript and CSS. Only vanilla JavaScript was used, no frameworks or 
 - If you want to learn how to actually alt spam effectively, go to the resources page as I have a video linked there that will explain it much better than I can
 - This test is simular to the aforementioned CPS test, but you can click with keyboard keys; click as fast as possible
 
-### Reaction Time Test - Click to start the test
+### Reaction Time Test
+- Click to start the test
 - Don't click when the background is red. Click ASAP when then background is green
 
 ### Timing and Precision Trainer
