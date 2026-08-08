@@ -19,6 +19,14 @@ a {
     color: white;
 }
 
+img {
+    position: absolute;
+    top: 0%;
+    left: 100%;
+    width: 25px;
+    transform: translate(-100%, 0%);
+}
+
 .unselectable {
     user-select: none;
 }
