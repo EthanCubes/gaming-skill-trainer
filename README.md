@@ -6,11 +6,11 @@ A web app with a variety of pages to help train gamers on various skills needed 
 [Click Here to Try the Program](https://ethancubes.github.io/gaming-skill-trainer/)
 
 ## Table of Contents
-1. [How to run locally](##how-to-run-locally)
-2. [Features](##features)
-3. [How it works](##how-it-works)
-4. [Help](##help)
-5. [Credits](##credits)
+1. [How to run locally](#how-to-run-locally)
+2. [Features](#features)
+3. [How it works](#how-it-works)
+4. [Help](#help)
+5. [Credits](#credits)
 
 ## How to run locally
 I don't know why you would need to run this locally but whatever I guess. 
